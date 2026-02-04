@@ -1,0 +1,25 @@
+---
+const companies = [
+  { name: "Ogilvy", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=Ogilvy" },
+  { name: "Saatchi & Saatchi", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=Saatchi" },
+  { name: "What If!", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=What+If!" },
+  { name: "Accenture Song", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=Accenture" },
+  { name: "GovTech", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=GovTech" },
+  { name: "Synthesis", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=Synthesis" },
+  { name: "SIT", logo: "https://placehold.co/120x40/1A1A1A/FFFFFF?text=SIT" }
+];
+---
+
+<section class="px-6 py-16 md:py-24">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 stagger-container">
+      {companies.map((company) => (
+        <img
+          src={company.logo}
+          alt={company.name}
+          class="stagger-item h-10 opacity-60 hover:opacity-100 transition-opacity grayscale"
+        />
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,41 @@
+---
+const questions = [
+  {
+    name: "Message",
+    question: "What does the audience need to remember feeling and learning?"
+  },
+  {
+    name: "Messenger",
+    question: "What does this moment need from me?"
+  },
+  {
+    name: "Stage",
+    question: "What conditions does this room need for the right behaviors to emerge?"
+  },
+  {
+    name: "Trigger",
+    question: "What might make this moment stick?"
+  }
+];
+---
+
+<section class="px-6 py-24 md:py-32 bg-off-white">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16 animate-on-scroll">
+      Four questions I ask when designing any experience
+    </h2>
+
+    <div class="grid gap-8 md:grid-cols-2 stagger-container">
+      {questions.map((item) => (
+        <div class="stagger-item">
+          <h3 class="font-serif text-xl md:text-2xl font-bold mb-3 text-coral">
+            {item.name}
+          </h3>
+          <p class="text-warm-gray text-lg leading-relaxed">
+            {item.question}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
