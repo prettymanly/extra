@@ -1,0 +1,141 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Why nobody ever changed because of a slide deck",
+  subtitle: "Information doesn't change behaviour. Feeling does. The gap between knowing and doing is bridged by something that lives in the body, not the brain.",
+  date: "January 2025",
+  tag: "Behaviour",
+  readTime: "6 min read",
+  heroImage: "https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?w=1600&h=900&fit=crop",
+  content: [
+    {
+      type: "paragraph",
+      text: "I've sat in hundreds of corporate training rooms. I've watched brilliant consultants deliver immaculate presentations. Slides polished to perfection. Data visualised beautifully. Logic unassailable. And then I've watched nothing change."
+    },
+    {
+      type: "paragraph",
+      text: "Three months later, people are doing exactly what they did before. The insights live in a folder somewhere, gathering digital dust. The transformation never transformed anything."
+    },
+    {
+      type: "heading",
+      text: "The knowing-doing gap"
+    },
+    {
+      type: "paragraph",
+      text: "Here's what I've learned after a decade of facilitating behaviour change: information is not the bottleneck. Everyone knows they should listen more, delegate better, give clearer feedback, be more strategic. The problem isn't awareness."
+    },
+    {
+      type: "quote",
+      text: "The gap between knowing and doing is not bridged by more knowing. It's bridged by feeling.",
+      author: "Something I wish I'd learned earlier"
+    },
+    {
+      type: "paragraph",
+      text: "When I design a workshop, I'm not trying to teach people things they don't know. I'm trying to help them feel things they've been avoiding. The discomfort of their current patterns. The possibility of something different. The permission to try."
+    },
+    {
+      type: "heading",
+      text: "What actually moves people"
+    },
+    {
+      type: "paragraph",
+      text: "I've noticed that transformation happens in specific moments. They share certain qualities:"
+    },
+    {
+      type: "list",
+      items: [
+        "They're visceral, not intellectual. Something lands in the gut, not just the head.",
+        "They involve risk. The person had to show something real about themselves.",
+        "They happen in relationship. Someone else witnessed the moment.",
+        "They're surprising. The insight came from somewhere unexpected."
+      ]
+    },
+    {
+      type: "paragraph",
+      text: "None of these qualities appear in a slide deck. None of them can be delivered through a presentation. They emerge from experiences designed with different intentions entirely."
+    },
+    {
+      type: "callout",
+      text: "This is why I stopped calling myself a trainer and started calling myself a facilitator. Training implies transfer of information. Facilitation implies creating conditions for something to emerge."
+    },
+    {
+      type: "heading",
+      text: "The body remembers what the brain forgets"
+    },
+    {
+      type: "paragraph",
+      text: "Here's something that sounds obvious but has profound implications: you can't think your way into a new way of acting. You have to act your way into a new way of thinking."
+    },
+    {
+      type: "paragraph",
+      text: "This means the workshop room needs to become a laboratory. A place where people experiment with new behaviours in real-time. Where they feel what it's like to pause before reacting, to ask instead of tell, to sit in ambiguity without rushing to resolve it."
+    },
+    {
+      type: "paragraph",
+      text: "The body stores these experiences differently than information. When you've actually felt the discomfort of holding silence in a negotiation—and discovered that the other person filled that silence with a concession—you don't need to remember the principle. It's encoded in your nervous system."
+    },
+    {
+      type: "heading",
+      text: "So what does this mean for how we design?"
+    },
+    {
+      type: "paragraph",
+      text: "It means flipping the ratio. Less content, more experience. Less telling, more discovering. Less polish, more rawness."
+    },
+    {
+      type: "paragraph",
+      text: "It means being comfortable with discomfort—yours and theirs. The moments that create change are rarely comfortable. They involve confronting patterns that have been protective. They require vulnerability."
+    },
+    {
+      type: "paragraph",
+      text: "It means trusting the room. The insights don't need to come from the facilitator. They're already in the room, waiting to be surfaced. Our job is to create the conditions where they can emerge."
+    },
+    {
+      type: "quote",
+      text: "The best moment in any workshop I've ever run was one where I said almost nothing. I just held the space while someone connected dots that had been floating around for years."
+    },
+    {
+      type: "heading",
+      text: "A practical invitation"
+    },
+    {
+      type: "paragraph",
+      text: "Next time you're designing an intervention—a workshop, a session, a team moment—ask yourself: what do I want them to feel? Not just know. Feel."
+    },
+    {
+      type: "paragraph",
+      text: "Then work backwards from there. What experience could create that feeling? What would they need to do, not just hear? What risk might they need to take?"
+    },
+    {
+      type: "paragraph",
+      text: "The slides can come later. Maybe. Or maybe you'll discover you don't need them at all."
+    }
+  ],
+  relatedPosts: [
+    {
+      title: "The Salt Bae principle",
+      excerpt: "You remember Salt Bae for the salt-swan thing, not the steak. The extra costs nothing.",
+      tag: "Philosophy",
+      href: "/thinking/the-salt-bae-principle"
+    },
+    {
+      title: "What the room needs from you",
+      excerpt: "Every moment in a workshop asks something different from the facilitator.",
+      tag: "Facilitation",
+      href: "/thinking/what-the-room-needs-from-you"
+    },
+    {
+      title: "The confidence was already inside",
+      excerpt: "We don't teach people new skills. We give them permission to use what they already have.",
+      tag: "Learning",
+      href: "/thinking/the-confidence-was-already-inside"
+    }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

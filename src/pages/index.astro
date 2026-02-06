@@ -1,24 +1,32 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Offer from '../components/Offer.astro';
-import CaseStudies from '../components/CaseStudies.astro';
-import Philosophy from '../components/Philosophy.astro';
-import Tactics from '../components/Tactics.astro';
-import LogoStrip from '../components/LogoStrip.astro';
-import Bio from '../components/Bio.astro';
-import CTA from '../components/CTA.astro';
+import HomePage from '../components/HomePage';
 ---
 
-<Layout title="Ziff — Facilitator & Experience Designer">
-  <main>
-    <Hero />
-    <Offer />
-    <CaseStudies />
-    <Philosophy />
-    <Tactics />
-    <LogoStrip />
-    <Bio />
-    <CTA />
-  </main>
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Ziff designs workshops and team experiences with a little extra soul. Based in Singapore." />
+    <meta property="og:title" content="Ziff — Be Extra" />
+    <meta property="og:description" content="Workshops, programmes, and team experiences—with a little extra soul." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Ziff — Be Extra</title>
+  </head>
+  <body>
+    <HomePage client:load />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+</style>

@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyPage from '../../components/CaseStudyPage';
+
+const caseStudyData = {
+  title: "Synthesis (Internal)",
+  oneLiner: "From brilliant analysis to felt resonance.",
+  programme: "Integration Series",
+  industry: "Consulting / Strategy",
+  scope: "20-30 junior strategists, 4 sessions × 1.5 hours",
+  heroImages: [
+    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1600&h=900&fit=crop",
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1600&h=900&fit=crop",
+  ],
+  accentColor: "#FF6B35",
+  story: [
+    "Synthesis's junior strategists were analytically brilliant. Sharp decks. Tight logic. Clear recommendations. But they weren't moving clients—they were convincing them. And there's a difference.",
+    "The team needed to design for resonance, not just rigour. The kind of presence that makes clients lean in, not just nod.",
+    "I designed a 4-part integration series built around my Message, Messenger, Stage, Trigger framework. Each session focused on a different dimension of how we show up.",
+  ],
+  artefacts: [
+    {
+      title: "Message",
+      description: "What's survival information? What do people actually need to remember? Kill your darlings. Concise narratives.",
+    },
+    {
+      title: "Messenger",
+      description: "How do you show up? What does this moment need from you? Awareness of presence.",
+    },
+    {
+      title: "Stage",
+      description: "What conditions does the room need? How does the Synthesis DNA show up in how they design space—the office, events, even the website?",
+    },
+    {
+      title: "Trigger",
+      description: "What makes a moment stick? Leaders shared their own relationship with extra-ness. How they signal meaning.",
+    },
+  ],
+  artefactsLayout: "grid",
+  metrics: [
+    { value: "4", label: "Sessions Designed", description: "A 4-part integration series built around the Message, Messenger, Stage, Trigger framework." },
+    { value: "30", label: "Strategists Trained", description: "Junior strategists who learned to design for resonance, not just rigour." },
+    { value: "100%", label: "Leader Participation", description: "Leaders shared their own relationship with extra-ness, modelling the behaviours." },
+  ],
+  quotes: [
+    {
+      text: "A breath of fresh air. Your style is so different and valuable to our young team.",
+      author: "Synthesis Leadership",
+    },
+  ],
+  credits: [
+    { role: "Lead Facilitator & Experience Designer", name: "Ziff" },
+    { role: "Client", name: "Synthesis" },
+  ],
+  relatedStudies: [
+    {
+      title: "Tetra Pak",
+      oneLiner: "From silos to symphony.",
+      category: "Leadership",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=800&h=1000&fit=crop",
+      href: "/case-studies/tetra-pak",
+    },
+  ],
+};
+---
+
+<Layout title="Synthesis (Internal) — Ziff">
+  <CaseStudyPage client:load {...caseStudyData} />
+</Layout>

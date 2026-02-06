@@ -1,0 +1,107 @@
+---
+import CaseStudyPage from '../../components/CaseStudyPage';
+
+const caseStudyData = {
+  title: "Tetra Pak",
+  oneLiner: "Shifting a team stuck in tool-mode to use of self.",
+  programme: "Transformation",
+  industry: "FMCG / Consumer Goods",
+  scope: "30+ participants, 8 APAC markets, 2-month co-design",
+  story: [
+    "The marketing team knew design thinking. They had been trained. They had the tools. They could run a double diamond in their sleep. But something was not landing.",
+    "The sessions felt mechanical. The outputs were competent but forgettable. The team was going through the motions—stuck in tool-mode, not using themselves.",
+    "I was brought in to design a behaviour-shift programme. Not another training. Not another framework. Something that would actually change how they showed up.",
+    "We spent two months in co-design: understanding the culture, the blockers, the moments where things fell flat. Then we built a 2-day immersive experience around four behaviours: Curiosity, Intuition, Bravery, and Momentum.",
+    "The workshop was not a lecture. It was a clue hunt. Discovery-based challenges. Segments built around specific behaviours they needed to practice—not just understand. A guidebook they could take home. Films I wrote and performed. AI coaches to push deeper thinking through the follow-up.",
+    "By the end, the shift was visible. Not just in what they said—in how they moved, how they listened, how they risked being wrong out loud."
+  ],
+  artefacts: [
+    {
+      title: "Clue Hunt",
+      description: "Discovery-driven workshop opener",
+      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+      details: "The workshop kicked off with a clue hunt designed to get participants out of their seats and into discovery mode. Teams had to find hidden clues around the venue, each revealing a piece of the puzzle about the behaviours we'd be exploring."
+    },
+    {
+      title: "Discovery Challenges",
+      description: "Behaviour-based exercises",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
+      details: "Each behaviour segment included hands-on challenges that pushed participants to practice—not just understand—what it means to show up with curiosity, intuition, bravery, and momentum."
+    },
+    {
+      title: "4 Behaviour Segments",
+      description: "Curiosity, Intuition, Bravery, Momentum",
+      image: "https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&q=80&w=800",
+      details: "The programme was built around four core behaviours identified through our co-design process. Each segment was crafted to help participants recognise and practice these behaviours in realistic scenarios."
+    },
+    {
+      title: "Guidebook",
+      description: "Take-home reference materials",
+      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&q=80&w=800",
+      details: "A beautifully designed guidebook that participants could take home, filled with frameworks, prompts, and reminders to help embed the behaviours into their daily work."
+    },
+    {
+      title: "Films",
+      description: "Written and performed by Ziff",
+      image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&q=80&w=800",
+      details: "Short films created specifically for the programme, featuring scenarios that brought the behaviours to life. Written and performed by Ziff to make the concepts tangible and memorable."
+    },
+    {
+      title: "AI Coaches",
+      description: "Follow-up support system",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800",
+      details: "Custom AI coaching agents designed to support participants after the workshop, helping them reflect on their behaviours and push deeper into the frameworks they learned."
+    }
+  ],
+  artefactsLayout: "carousel",
+  metrics: [
+    { value: "30+", label: "Participants", description: "Marketing managers from across the APAC region participated in the immersive 2-day workshop." },
+    { value: "8", label: "Markets", description: "Teams from 8 different APAC markets came together for the transformation programme." },
+    { value: "4", label: "Behaviours", description: "Curiosity, Intuition, Bravery, and Momentum—the core behaviours the programme was built around." },
+    { value: "2mo", label: "Co-design", description: "Deep collaboration to understand the culture and design an experience that would actually work." }
+  ],
+  quotes: [
+    { text: "A safe space for introverts." },
+    { text: "The confidence was already inside." },
+    { text: "Felt heard through realistic scenarios." }
+  ],
+  heroImages: [
+    "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1600",
+    "https://images.unsplash.com/photo-1531498860502-7c67cf02f657?auto=format&fit=crop&q=80&w=1600"
+  ],
+  accentColor: "#E85A3C",
+  relatedStudies: [
+    {
+      title: "Synthesis (Internal)",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
+      href: "/case-studies/synthesis-internal"
+    }
+  ],
+  credits: [
+    { role: "Lead Facilitator & Experience Designer", name: "Ziff" },
+    { role: "Partner", name: "Synthesis" }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Shifting a team stuck in tool-mode to use of self. A behaviour-shift programme for 30+ marketing managers across 8 APAC markets." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>Tetra Pak — Ziff</title>
+  </head>
+  <body>
+    <CaseStudyPage client:load {...caseStudyData} />
+  </body>
+</html>
+
+<style is:global>
+  @import '../../styles/global.css';
+  body { margin: 0; padding: 0; }
+</style>

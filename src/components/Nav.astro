@@ -1,0 +1,85 @@
+---
+const navItems = [
+  { label: "Ways I Work", href: "/work" },
+  { label: "Proof", href: "/case-studies" },
+  { label: "Extra", href: "/extra" },
+  { label: "Thinking", href: "/thinking" },
+  { label: "About", href: "/about" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-charcoal/5">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-serif text-2xl font-bold text-charcoal hover:text-coral transition-colors">
+      Ziff
+    </a>
+
+    <!-- Desktop Nav -->
+    <div class="hidden md:flex items-center gap-8">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`text-sm font-medium transition-colors ${
+            currentPath === item.href || currentPath.startsWith(item.href + "/")
+              ? "text-coral"
+              : "text-charcoal hover:text-coral"
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="#cta"
+        class="bg-charcoal text-white px-4 py-2 text-sm font-medium hover:bg-charcoal/80 transition-colors"
+      >
+        Let's Talk
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      id="mobile-menu-button"
+      class="md:hidden p-2 text-charcoal"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-charcoal/5">
+    <div class="px-6 py-4 space-y-4">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class={`block text-base font-medium transition-colors ${
+            currentPath === item.href || currentPath.startsWith(item.href + "/")
+              ? "text-coral"
+              : "text-charcoal hover:text-coral"
+          }`}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a
+        href="#cta"
+        class="block bg-charcoal text-white px-4 py-2 text-sm font-medium text-center hover:bg-charcoal/80 transition-colors"
+      >
+        Let's Talk
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

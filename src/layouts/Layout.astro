@@ -4,7 +4,10 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Workshops and team experiences with a little extra soul." } = Astro.props;
+const {
+  title,
+  description = "Ziff designs workshops and team experiences with a little extra soul. Based in Singapore.",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -19,65 +22,11 @@ const { title, description = "Workshops and team experiences with a little extra
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>{title}</title>
   </head>
-  <body class="bg-cream text-charcoal font-sans antialiased">
+  <body class="bg-[#0A0A0A] text-white font-sans antialiased">
     <slot />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Check for reduced motion preference
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (!prefersReducedMotion) {
-        // Animate all elements with animate-on-scroll class
-        gsap.utils.toArray('.animate-on-scroll').forEach((el) => {
-          gsap.fromTo(el,
-            { opacity: 0, y: 30 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: el,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-              }
-            }
-          );
-        });
-
-        // Stagger animations for grouped elements
-        gsap.utils.toArray('.stagger-container').forEach((container) => {
-          const children = container.querySelectorAll('.stagger-item');
-          gsap.fromTo(children,
-            { opacity: 0, y: 20 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.6,
-              stagger: 0.1,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: container,
-                start: 'top 85%',
-                toggleActions: 'play none none none'
-              }
-            }
-          );
-        });
-      } else {
-        // Show all content immediately for reduced motion
-        document.querySelectorAll('.animate-on-scroll, .stagger-item').forEach((el) => {
-          el.style.opacity = '1';
-          el.style.transform = 'none';
-        });
-      }
-    </script>
   </body>
 </html>
 
