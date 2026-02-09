@@ -124,13 +124,18 @@ const CaseStudyCard = ({ study, index }: { study: CaseStudy; index: number }) =>
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showManifesto, setShowManifesto] = useState(false);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
   const yTranslate = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      // Show/hide manifesto based on scroll position
+      setShowManifesto(window.scrollY > 20);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -197,52 +202,58 @@ export default function HomePage() {
       </AnimatePresence>
 
       <main>
-        {/* Hero Section */}
-        <section className="relative pt-40 pb-16 px-6 md:px-12 max-w-screen-2xl mx-auto overflow-hidden">
-          <motion.div style={{ opacity, scale, y: yTranslate }} className="text-center">
+        {/* Hero Section - Collins-style full viewport */}
+        <section className="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 overflow-hidden">
+          <motion.div style={{ opacity, scale, y: yTranslate }} className="text-center max-w-screen-2xl mx-auto w-full">
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-8xl lg:text-[10rem] font-serif italic mb-8 tracking-tight leading-[0.9]"
+              className="text-2xl md:text-4xl lg:text-[3.5rem] xl:text-[4.2rem] font-serif italic mb-12 tracking-tight leading-[1] max-w-4xl mx-auto"
             >
-              Be Extra.
+              The corporate world can afford to be a bit more extra.
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-lg md:text-xl text-white/60 max-w-xl mx-auto mb-16"
-            >
-              Workshops, programmes, and team experiences—with a little extra soul.
-            </motion.p>
-
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-20 opacity-40 text-[10px] font-bold uppercase tracking-[0.2em]">
-              {COMPANIES.map((company) => (
-                <span key={company}>{company}</span>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ clipPath: 'inset(10% 20% 10% 20%)', opacity: 0 }}
-              animate={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-              className="relative max-w-6xl mx-auto"
-            >
-              <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden bg-white/5 shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80"
-                  alt="Workshop session"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
+            {/* Manifesto - reveals after user starts scrolling, hides when back at top */}
+            <AnimatePresence>
+              {showManifesto && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: 'auto' }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-base md:text-lg text-white/60 max-w-2xl mx-auto space-y-4 overflow-hidden"
+                >
+                  <p>Workshops can be sterile. Forgettable. Optimized for efficiency, not for feeling.</p>
+                  <p>But sometimes a slide still sits with someone over Tuesday ramen. People contemplate their role and identity in a room full of lanyards.</p>
+                  <p>I care deeply about what makes that happen. I design workshops, presentations, and team experiences... with a little extra soul.</p>
+                  <p className="text-white/40 italic">Like a corporate artist. Ambitious, I know.</p>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         </section>
 
+        {/* Hero Image - positioned to peek from hero and flow into next section */}
+        <motion.div
+          initial={{ clipPath: 'inset(10% 20% 10% 20%)', opacity: 0 }}
+          animate={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
+          className="px-6 md:px-12 -mt-[40px]"
+        >
+          <div className="max-w-6xl mx-auto">
+            <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden bg-white/5 shadow-2xl">
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=2000&q=80"
+                alt="Workshop session"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </motion.div>
+
         {/* Ways I Work Section */}
-        <section className="py-32 px-6 md:px-12 bg-[#111111]">
+        <section className="pt-24 md:pt-32 pb-32 px-6 md:px-12 bg-[#0A0A0A]">
           <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
             <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit">
               <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mb-6 block">Ways I Work</span>

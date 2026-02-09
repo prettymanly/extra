@@ -41,23 +41,66 @@ export default function WorkPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-6"
           >
-            Services
+            Ways I Work
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-serif italic tracking-tight mb-8"
+            className="text-5xl md:text-7xl lg:text-8xl font-serif italic tracking-tight"
           >
-            Ways I Work
+            Be extra.
           </motion.h1>
+        </div>
+      </section>
+
+      {/* Manifesto */}
+      <section className="px-6 md:px-12 pb-24">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="max-w-3xl space-y-6 text-xl md:text-2xl text-white/70 leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              You remember Salt Bae for the salt-swan thing, not the steak. I've rewatched that Barry episode where a 12-year-old girl goes full feral mongoose, scales a tree, perches on a roof like a gargoyle, and bites a man's face. Season 2, Episode 5. 7 times. It had nothing to do with the plot. You probably had a teacher growing up who went too far to make a point.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              Meanwhile we've all sat through dozens of workshops and probably struggle to name a single moment that stuck.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              I think about that gap a lot. Salt Bae's extra-ness cost nothing. The workshop had a budget.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="text-white"
+            >
+              So why do we walk into the office and accept forgettable?
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Transition to Services */}
+      <section className="px-6 md:px-12 pb-16">
+        <div className="max-w-screen-xl mx-auto">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/60 max-w-2xl font-light leading-relaxed"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-2xl md:text-3xl font-serif italic text-white/60 max-w-2xl"
           >
-            Three ways I help teams feel something other than the quiet dread of another workshop.
+            Here are some ways I help teams feel something other than the quiet dread of another workshop.
           </motion.p>
         </div>
       </section>
