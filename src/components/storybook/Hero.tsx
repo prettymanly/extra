@@ -1,91 +1,90 @@
-import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { tw, brandEase } from '../../styles/colors';
+
+/**
+ * DESIGN SYSTEM: Hero
+ * - Takes up ~90vh with headline centered
+ * - Manifesto appears on scroll (once triggered, stays visible)
+ * - Hero image with clip-path reveal animation
+ * - Uses brandEase for all animations
+ */
 
 interface HeroProps {
   headline: string;
-  subheadline?: string;
-  companies?: string[];
+  manifesto?: string[];
+  manifestoMuted?: string;
   heroImage?: string;
-  dark?: boolean;
 }
 
-/**
- * Hero - Collins-style full-viewport hero section
- *
- * Features:
- * - Takes up ~90vh so the content below only peeks
- * - Headline centered vertically and horizontally
- * - Companies/credentials displayed below headline
- * - Image peeks from below the fold (~40px visible)
- * - Parallax scroll effects
- *
- * Note: The image is positioned with negative margin to peek into the hero
- * while remaining in normal document flow to avoid overlap issues.
- */
 export default function Hero({
   headline,
-  subheadline,
-  companies = [],
+  manifesto = [],
+  manifestoMuted,
   heroImage,
-  dark = true,
 }: HeroProps) {
+  const [showManifesto, setShowManifesto] = useState(false);
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.15], [1, 0.95]);
   const yTranslate = useTransform(scrollYProgress, [0, 0.15], [0, -50]);
 
-  const textColor = dark ? 'text-white' : 'text-black';
-  const mutedColor = dark ? 'text-white/60' : 'text-black/60';
+  useEffect(() => {
+    const handleScroll = () => {
+      // Once triggered, stay visible (prevents jitter loop from layout shifts)
+      if (window.scrollY > 100) {
+        setShowManifesto(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
-      <section className={`relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 overflow-hidden ${textColor}`}>
+      <section className="relative min-h-[90vh] flex flex-col justify-center px-8 md:px-12 overflow-hidden">
         <motion.div style={{ opacity, scale, y: yTranslate }} className="text-center max-w-screen-2xl mx-auto w-full">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-5xl md:text-7xl lg:text-[8rem] xl:text-[10rem] font-serif italic mb-8 tracking-tight leading-[0.9]"
+            transition={{ duration: 1.2, ease: brandEase }}
+            className={`text-2xl md:text-4xl lg:text-[3.5rem] xl:text-[4.2rem] font-serif italic mb-12 tracking-tight leading-[1] max-w-4xl mx-auto ${tw.light.text}`}
           >
             {headline}
           </motion.h1>
 
-          {subheadline && (
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className={`text-lg md:text-xl ${mutedColor} max-w-xl mx-auto mb-12`}
-            >
-              {subheadline}
-            </motion.p>
-          )}
-
-          {companies.length > 0 && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.4 }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-[10px] font-bold uppercase tracking-[0.2em]"
-            >
-              {companies.map((company) => (
-                <span key={company}>{company}</span>
-              ))}
-            </motion.div>
-          )}
+          {/* Manifesto - appears on scroll */}
+          <AnimatePresence>
+            {showManifesto && manifesto.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.6, ease: brandEase }}
+                className={`text-base md:text-lg ${tw.light.textSecondary} max-w-2xl mx-auto space-y-4 overflow-hidden`}
+              >
+                {manifesto.map((paragraph, idx) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+                {manifestoMuted && (
+                  <p className={`${tw.light.textMuted} italic`}>{manifestoMuted}</p>
+                )}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </section>
 
-      {/* Image peeks from hero with negative margin, stays in document flow */}
+      {/* Hero Image with clip-path reveal */}
       {heroImage && (
         <motion.div
-          initial={{ clipPath: 'inset(10% 20% 10% 20%)', opacity: 0 }}
+          initial={{ clipPath: 'inset(20% 30% 20% 30%)', opacity: 0 }}
           animate={{ clipPath: 'inset(0% 0% 0% 0%)', opacity: 1 }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          className="px-6 md:px-12 -mt-[40px]"
+          transition={{ duration: 1.5, ease: brandEase, delay: 0.3 }}
+          className="px-8 md:px-12 -mt-[40px]"
         >
           <div className="max-w-6xl mx-auto">
-            <div className={`aspect-[21/9] w-full rounded-3xl overflow-hidden shadow-2xl ${dark ? 'bg-white/5' : 'bg-black/5'}`}>
+            <div className="aspect-[21/9] w-full rounded-3xl overflow-hidden bg-[#EDEDEA] shadow-2xl">
               <img
                 src={heroImage}
                 alt="Hero"

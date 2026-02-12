@@ -29,3 +29,6 @@ export { default as QuoteBlock } from './QuoteBlock';
 // Artefacts Components (two versions)
 export { default as ArtefactsGrid } from './ArtefactsGrid';       // Grid layout version
 export { default as ArtefactsCarousel } from './ArtefactsCarousel'; // Carousel with modal version
+
+// Utility Components
+export { default as ScrollToTop } from './ScrollToTop';           // Fixed scroll-to-top button

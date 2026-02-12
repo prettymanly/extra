@@ -1,35 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { brandEase } from '../../styles/colors';
+
+/**
+ * DESIGN SYSTEM: HeroGallery
+ * - Horizontal scrollable gallery
+ * - First image larger (70vw), subsequent (55vw)
+ * - Third slot can be accent color block if no image
+ * - Hover zoom effect
+ */
 
 interface HeroGalleryProps {
   images: string[];
   title?: string;
   accentColor?: string;
-  dark?: boolean;
 }
 
-/**
- * HeroGallery - Collins-style horizontal scrollable image gallery
- *
- * Features:
- * - Horizontal scroll with proper left/right padding
- * - Images bleed off edges when scrolling
- * - Responsive sizing that fits above the fold
- * - Hover zoom effect on images
- */
 export default function HeroGallery({
   images,
   title = '',
-  accentColor = '#E85A3C',
-  dark = true,
+  accentColor = '#FDDE0C',
 }: HeroGalleryProps) {
   return (
     <section className="pb-12 md:pb-16">
       <motion.div
-        className="flex gap-4 md:gap-5 overflow-x-auto pb-4 scrollbar-hide px-6 md:px-12"
+        className="flex gap-4 md:gap-5 overflow-x-auto pb-4 scrollbar-hide px-8 md:px-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: brandEase }}
         style={{
           scrollbarWidth: 'none',
           msOverflowStyle: 'none',
@@ -40,7 +38,7 @@ export default function HeroGallery({
           className="flex-shrink-0 w-[70vw] md:w-[45vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: brandEase }}
         >
           <img
             src={images[0]}
@@ -55,7 +53,7 @@ export default function HeroGallery({
             className="flex-shrink-0 w-[55vw] md:w-[35vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: brandEase }}
           >
             <img
               src={images[1]}
@@ -71,7 +69,7 @@ export default function HeroGallery({
           style={{ backgroundColor: images[2] ? undefined : accentColor }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: brandEase }}
         >
           {images[2] ? (
             <img
@@ -81,7 +79,7 @@ export default function HeroGallery({
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <span className={`text-2xl md:text-4xl font-serif italic ${dark ? 'text-white/80' : 'text-black/80'}`}>
+              <span className="text-[#0A0A0A]/80 text-2xl md:text-4xl font-serif italic">
                 {title.split(' ')[0]}
               </span>
             </div>
@@ -95,7 +93,7 @@ export default function HeroGallery({
             className="flex-shrink-0 w-[55vw] md:w-[35vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 + idx * 0.1 }}
+            transition={{ duration: 0.6, delay: 0.6 + idx * 0.1, ease: brandEase }}
           >
             <img
               src={img}

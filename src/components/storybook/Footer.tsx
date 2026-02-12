@@ -1,5 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { tw, brandEase } from '../../styles/colors';
+
+/**
+ * DESIGN SYSTEM: Footer
+ * - Background: tw.dark.bg (olive #686344)
+ * - Buttons: tw.dark.btnAccent (bright yellow), tw.dark.btnSecondary
+ * - Animation: Headlines y: 30, brandEase
+ * - Accent divider: bright yellow (#FDDE0C)
+ */
 
 interface FooterLink {
   name: string;
@@ -7,7 +16,6 @@ interface FooterLink {
 }
 
 interface FooterProps {
-  dark?: boolean;
   showCTA?: boolean;
   ctaTitle?: string;
   ctaSubtitle?: string;
@@ -17,13 +25,12 @@ interface FooterProps {
 }
 
 const defaultNavLinks: FooterLink[] = [
-  { name: 'Ways I Work', href: '/work' },
-  { name: 'Proof', href: '/case-studies' },
+  { name: 'Services', href: '/work' },
+  { name: 'Case Studies', href: '/case-studies' },
   { name: 'About', href: '/about' },
 ];
 
 export default function Footer({
-  dark = false,
   showCTA = true,
   ctaTitle = "If this resonates, let's talk.",
   ctaSubtitle = "WhatsApp me. Email me. Tell me what you're working on.",
@@ -31,47 +38,35 @@ export default function Footer({
   email = "ziff.lau@gmail.com",
   navLinks = defaultNavLinks,
 }: FooterProps) {
-  const bgColor = dark ? 'bg-[#0A0A0A]' : 'bg-white';
-  const textColor = dark ? 'text-white' : 'text-black';
-  const mutedColor = dark ? 'text-white/60' : 'text-black/60';
-  const borderColor = dark ? 'border-white/20' : 'border-black/20';
-
   return (
-    <footer className={`${bgColor} ${textColor}`}>
+    <footer className={`${tw.dark.bg} ${tw.dark.text}`}>
       {showCTA && (
-        <section id="cta" className="py-32 px-6 md:px-12 text-center overflow-hidden relative">
+        <section id="cta" className="py-32 px-8 md:px-12 text-center overflow-hidden relative">
           <div className="max-w-screen-xl mx-auto relative z-10">
             <motion.h2
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: brandEase }}
               viewport={{ once: true }}
               className="text-4xl md:text-6xl font-serif italic mb-8"
             >
               {ctaTitle}
             </motion.h2>
 
-            <p className={`text-lg mb-12 max-w-lg mx-auto ${mutedColor}`}>
+            <p className={`text-lg mb-12 max-w-lg mx-auto ${tw.dark.textMuted}`}>
               {ctaSubtitle}
             </p>
 
             <div className="flex flex-col md:flex-row justify-center gap-6 mb-20">
               <a
                 href={`https://wa.me/${phone.replace(/\D/g, '')}`}
-                className={`px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest transition-all ${
-                  dark
-                    ? 'bg-white text-black hover:bg-white/90'
-                    : 'bg-black text-white hover:bg-black/80'
-                }`}
+                className={`px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest transition-all ${tw.dark.btnAccent}`}
               >
                 {phone}
               </a>
               <a
                 href={`mailto:${email}`}
-                className={`px-8 py-4 border rounded-full font-bold uppercase text-xs tracking-widest transition-all ${
-                  dark
-                    ? `${borderColor} hover:bg-white/10`
-                    : `${borderColor} hover:bg-black/5`
-                }`}
+                className={`px-8 py-4 border rounded-full font-bold uppercase text-xs tracking-widest transition-all ${tw.dark.btnSecondary}`}
               >
                 {email}
               </a>
@@ -83,17 +78,20 @@ export default function Footer({
                   key={item.name}
                   href={item.href}
                   whileHover={{ scale: 1.02, x: 10 }}
-                  className="text-4xl md:text-6xl lg:text-7xl font-serif hover:italic transition-all duration-500 tracking-tighter"
+                  className="text-4xl md:text-6xl lg:text-7xl font-serif hover-italic tracking-tighter"
                 >
                   {item.name}
                 </motion.a>
               ))}
             </nav>
 
-            <div className={`flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-bold uppercase tracking-[0.2em] opacity-40`}>
+            {/* Accent divider - bright yellow on dark bg */}
+            <div className="w-16 h-0.5 bg-[#FDDE0C] mx-auto mb-8" />
+
+            <div className={`flex flex-wrap justify-center gap-x-12 gap-y-4 text-[10px] font-bold uppercase tracking-[0.2em] ${tw.dark.textMuted}`}>
               <span>Singapore</span>
-              <span>·</span>
-              <span>© {new Date().getFullYear()} Ziff</span>
+              <span>&middot;</span>
+              <span>&copy; {new Date().getFullYear()} Ziff</span>
             </div>
           </div>
         </section>
