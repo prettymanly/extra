@@ -49,9 +49,9 @@ const CASE_STUDIES = [
 ];
 
 const EXTRA_ITEMS = [
-  { title: 'Improv', description: 'Paying money to be embarrassed on purpose.' },
-  { title: 'Teaching at SIT', description: 'Design Innovation. Futures, systems, life.' },
   { title: 'Arabingo', description: 'A board game to help kids learn the Arabic alphabet through play.' },
+  { title: 'Inner Playground', description: 'Improv training for curious adults.' },
+  { title: 'Conscious Collapse', description: 'A podcast about burnout, meaning, and starting over.' },
 ];
 
 const BLOG_POSTS = [
