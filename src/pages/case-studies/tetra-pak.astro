@@ -15,57 +15,78 @@ const caseStudyData = {
     "You could feel the shift. Less performing. More choosing. Better questions. Teams left with a shared way to diagnose the real problem, handle pushback, and turn ambiguity into the next credible move. One participant later wrote that she'd been too eager to solve symptoms, and would spend more time working with clients on the real issue underneath. Another called it \"unprofessional in the best way.\" On the way out, someone left a note near the door: \"Certainty is expensive. Momentum is cheap.\"",
     "The artefacts weren't decoration. They were the mechanism."
   ],
-  artefacts: [
+  artefactsLayout: "grouped",
+  artefactGroups: [
     {
-      title: "Clue Hunt",
-      description: "Apex Beverages scenario pack",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
-      details: "Most workshops start with a problem statement and a polite agreement to pretend the brief is the truth. We didn't. We started by designing a world that could hold the mess. The Apex Beverages dossier was not a \"case\" to discuss. It was an environment to navigate."
+      id: "world",
+      label: "The World",
+      tagline: "Immersion",
+      images: [
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
+      ],
+      narrative: [
+        "Most workshops start with a problem statement and a polite agreement to pretend the brief is the truth.",
+        "We didn't.",
+        "We started by designing a world that could hold the mess. The Apex Beverages dossier was not a \"case\" to discuss. It was an environment to navigate. It had the texture of real client work: partial information, conflicting signals, stakeholder emotion hiding in plain sight. The point was to make ambiguity unavoidable, because that's where the real behaviours show up.",
+        "Then we made it personal, fast. The quiz-lanyards arrived before the frameworks. Each one reflected a behaviour participants had already identified in themselves. It shifted the room from performance to practice. Suddenly the breaks weren't downtime. They were rehearsal.",
+        "The world did one job: it made it safe to be exposed and impossible to hide."
+      ],
+      artefacts: [
+        { title: "Clue Hunt", description: "Apex Beverages scenario pack" },
+        { title: "Behaviour Diagnostic", description: "Pre-workshop reflection" },
+        { title: "Quiz-Lanyards", description: "Wearable behaviour prompts" }
+      ]
     },
     {
-      title: "Quiz-Lanyards",
-      description: "Wearable behaviour prompts",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
-      details: "The quiz-lanyards arrived before the frameworks. Each one reflected a behaviour participants had already identified in themselves. It shifted the room from performance to practice. Suddenly the breaks weren't downtime. They were rehearsal."
+      id: "tools",
+      label: "The Tools",
+      tagline: "Decision-making under pressure",
+      images: [
+        "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
+      ],
+      narrative: [
+        "In most rooms, tools are used to look busy. In tense rooms, they become camouflage.",
+        "So we designed tools that do the opposite. Each tool was nested under a behaviour, and each behaviour was treated like a stance you could inhabit, not a value you could agree with. The Field Guide became the spine: four behaviours, the tools underneath them, and space to reflect on what happened, not just what was produced.",
+        "The Reverse Brief was the first pressure valve. Clients describe symptoms. Teams rush to solve them. The Reverse Brief forces a pause long enough to separate what was requested from what is needed.",
+        "The Assumptionator made the invisible visible. Instead of debating opinions, it surfaced the beliefs nobody was testing, so the group could trade friction for learning.",
+        "The Action Planner kept the work moving when certainty wasn't available. Exploit. Explore. Experiment. Not a grand strategy deck, but a way to choose the next credible move with the time you actually have.",
+        "The tools weren't the workshop. They were the moves you reach for when the room gets real."
+      ],
+      artefacts: [
+        { title: "Field Guide", description: "Design Being companion" },
+        { title: "Reverse Brief", description: "Symptom-to-strategy diagnostic" },
+        { title: "Assumptionator", description: "Assumption surfacing prompts" },
+        { title: "Action Planner", description: "Exploit / explore / experiment framework" }
+      ]
     },
     {
-      title: "Field Guide",
-      description: "Design Being companion",
-      image: "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=800",
-      details: "The Field Guide became the spine: four behaviours, the tools underneath them, and space to reflect on what happened, not just what was produced. Each behaviour was treated like a stance you could inhabit, not a value you could agree with."
-    },
-    {
-      title: "Reverse Brief",
-      description: "Symptom-to-strategy diagnostic",
-      image: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&q=80&w=800",
-      details: "Clients describe symptoms. Teams rush to solve them. The Reverse Brief forces a pause long enough to separate what was requested from what is needed. It was the first pressure valve."
-    },
-    {
-      title: "Assumptionator",
-      description: "Assumption surfacing prompts",
-      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=800",
-      details: "Instead of debating opinions, the Assumptionator surfaced the beliefs nobody was testing, so the group could trade friction for learning. It made the invisible visible."
-    },
-    {
-      title: "Action Planner",
-      description: "Exploit / explore / experiment framework",
-      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800",
-      details: "The Action Planner kept the work moving when certainty wasn't available. Exploit. Explore. Experiment. Not a grand strategy deck, but a way to choose the next credible move with the time you actually have."
-    },
-    {
-      title: "Training Films",
-      description: "Behaviour modelling scenes",
-      image: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800",
-      details: "If Curiosity is a stance, how does it sound? If Bravery is a move, what does it cost? The training films answered those questions. Not entertainment. Not inspiration. Just short scenes that made the behaviours observable."
-    },
-    {
-      title: "AI Coach",
-      description: "Post-workshop thought partner",
-      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
-      details: "After the room emptied, the AI Coach carried the thread forward. It functioned as a thought partner that helped participants apply the behaviours to live accounts, when the pressure returned and the old habits came knocking."
+      id: "reinforcement",
+      label: "The Reinforcement",
+      tagline: "Before, during, after",
+      images: [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800"
+      ],
+      narrative: [
+        "A two-day programme is a spark. Real change needs a slow burn.",
+        "So we built reinforcement before, during, and after.",
+        "Priming content did the first bit of work. It set stakes and tone early, so day one didn't start with surface-level alignment. People arrived already inside the question, not outside it.",
+        "If Curiosity is a stance, how does it sound? If Bravery is a move, what does it cost? The training films answered those questions. Not entertainment. Not inspiration. Just short scenes that made the behaviours observable, so teams could point to what good actually looks like. Written and performed, so the behaviours become repeatable, not abstract.",
+        "And after the room emptied, the AI Coach carried the thread forward. It functioned as a thought partner that helped participants apply the behaviours to live accounts, when the pressure returned and the old habits came knocking.",
+        "Reinforcement did one job: it made Design Being portable."
+      ],
+      artefacts: [
+        { title: "Trailer Films", description: "Podcast + video primer" },
+        { title: "Training Films", description: "Behaviour modelling scenes" },
+        { title: "AI Coach", description: "Post-workshop thought partner" }
+      ]
     }
   ],
-  artefactsLayout: "carousel",
   metrics: [
     { value: "10", label: "Interviews", description: "Discovery sessions across APAC markets to understand the real tensions before designing anything." },
     { value: "20+", label: "Participants", description: "Marketing managers from across the APAC region participated in the immersive 2-day workshop." },

@@ -8,6 +8,7 @@ import {
   ProjectInfoSection,
   ArtefactsGrid,
   ArtefactsCarousel,
+  ArtefactsGrouped,
   ImpactSection,
   QuotesSection,
   CreditsSection,
@@ -26,6 +27,15 @@ import { tw, brandEase } from '../styles/colors';
 interface Metric { value: string; label: string; description: string; }
 interface Quote { text: string; author?: string; }
 interface Artefact { title: string; description?: string; image?: string; details?: string; }
+interface ArtefactItem { title: string; description: string; }
+interface ArtefactGroup {
+  id: string;
+  label: string;
+  tagline: string;
+  images: string[];
+  narrative: string[];
+  artefacts: ArtefactItem[];
+}
 interface RelatedStudy { title: string; image: string; href: string; }
 interface Credit { role: string; name: string; }
 
@@ -36,8 +46,9 @@ interface CaseStudyPageProps {
   industry: string;
   scope: string;
   story: string[];
-  artefacts: Artefact[];
-  artefactsLayout?: 'grid' | 'carousel';
+  artefacts?: Artefact[];
+  artefactGroups?: ArtefactGroup[];
+  artefactsLayout?: 'grid' | 'carousel' | 'grouped';
   metrics: Metric[];
   quotes: Quote[];
   heroImages: string[];
@@ -53,7 +64,8 @@ export default function CaseStudyPage({
   industry,
   scope,
   story,
-  artefacts,
+  artefacts = [],
+  artefactGroups = [],
   artefactsLayout = 'grid',
   metrics,
   quotes,
@@ -79,7 +91,13 @@ export default function CaseStudyPage({
         />
 
         {/* Artefacts */}
-        {artefacts.length > 0 && (
+        {artefactsLayout === 'grouped' && artefactGroups.length > 0 ? (
+          <ArtefactsGrouped
+            groups={artefactGroups}
+            headline="What We Built"
+            subheadline="The artefacts weren't decoration. They were the mechanism."
+          />
+        ) : artefacts.length > 0 && (
           artefactsLayout === 'carousel' ? (
             <ArtefactsCarousel
               artefacts={artefacts}
