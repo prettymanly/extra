@@ -79,7 +79,7 @@ export default function CTASection({
               key={item.name}
               href={item.href}
               whileHover={{ scale: 1.02, x: 10 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-serif hover:italic transition-all duration-500 tracking-tighter"
+              className="text-4xl md:text-6xl lg:text-7xl font-serif hover-italic tracking-tighter"
             >
               {item.name}
             </motion.a>

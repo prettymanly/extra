@@ -13,7 +13,7 @@ export default function QuoteBlock({ quote, author, dark = true }: QuoteBlockPro
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className={`border-l-4 pl-6 py-2 ${dark ? 'border-white/20' : 'border-black/20'}`}
+      className={`border-l-4 pl-6 py-2 border-[#FDDE0C]`}
     >
       <p className={`text-xl md:text-2xl font-serif italic leading-relaxed ${dark ? 'text-white/80' : 'text-black/80'}`}>
         &ldquo;{quote}&rdquo;

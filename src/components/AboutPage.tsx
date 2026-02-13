@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Navigation, Footer } from './storybook';
+import { tw, brandEase } from '../styles/colors';
+
+/**
+ * DESIGN SYSTEM RULES
+ * See HomePage.tsx for full documentation
+ */
 
 const companies = [
-  "Ogilvy",
-  "Saatchi & Saatchi",
-  "What If! Innovation",
-  "Accenture Song",
-  "GovTech Singapore",
-  "Synthesis",
+  "Ogilvy", "Saatchi & Saatchi", "What If! Innovation",
+  "Accenture Song", "GovTech Singapore", "Synthesis",
   "Singapore Institute of Technology"
 ];
 
@@ -23,42 +25,41 @@ const bioSections = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-white">
-      <Navigation dark />
+    <div className={`min-h-screen ${tw.light.bg} ${tw.light.text} ${tw.light.selection}`}>
+      <Navigation />
 
       {/* Hero */}
-      <section className="px-6 md:px-12 pt-32 pb-20">
+      <section className="px-8 md:px-12 pt-32 pb-20">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid md:grid-cols-5 gap-12 md:gap-20 items-start">
-            {/* Photo */}
+            {/* Portrait with clip-path reveal */}
             <motion.div
               className="md:col-span-2"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
+              initial={{ clipPath: 'inset(100% 0 0 0)', opacity: 0 }}
+              animate={{ clipPath: 'inset(0% 0 0 0)', opacity: 1 }}
+              transition={{ duration: 1.2, ease: brandEase }}
             >
               <div className="aspect-[3/4] overflow-hidden rounded-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop&crop=face"
-                  alt="Ziff"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                />
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&h=800&fit=crop&crop=face" alt="Ziff" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </motion.div>
 
-            {/* Info */}
             <div className="md:col-span-3">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-4"
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: brandEase }}
+                className="flex items-center gap-3 mb-4"
               >
-                About
-              </motion.p>
+                <div className="w-6 h-0.5 bg-[#b39d00]" />
+                <span className={`text-[10px] font-bold uppercase tracking-[0.3em] ${tw.light.olive}`}>
+                  About
+                </span>
+              </motion.div>
               <motion.h1
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
+                transition={{ delay: 0.1, duration: 1, ease: brandEase }}
                 className="text-5xl md:text-7xl font-serif italic mb-2"
               >
                 Ziff
@@ -66,8 +67,8 @@ export default function AboutPage() {
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-xl text-white/60 mb-12"
+                transition={{ delay: 0.2, duration: 0.8, ease: brandEase }}
+                className={`text-xl ${tw.light.textSecondary} mb-12`}
               >
                 Facilitator & Experience Designer
               </motion.p>
@@ -78,8 +79,8 @@ export default function AboutPage() {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    className={`text-lg leading-relaxed ${index === 0 ? 'text-white font-medium' : 'text-white/60'}`}
+                    transition={{ delay: 0.3 + index * 0.1, duration: 0.8, ease: brandEase }}
+                    className={`text-lg leading-relaxed ${index === 0 ? `${tw.light.text} font-medium` : tw.light.textSecondary}`}
                   >
                     {paragraph}
                   </motion.p>
@@ -91,48 +92,64 @@ export default function AboutPage() {
       </section>
 
       {/* The Through-Line */}
-      <section className="px-6 md:px-12 py-32 bg-white/5">
+      <section className={`px-8 md:px-12 py-32 ${tw.light.bgSecondary}`}>
         <div className="max-w-4xl mx-auto text-center">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: brandEase }}
             viewport={{ once: true }}
-            className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-8"
+            className="flex items-center justify-center gap-3 mb-8"
           >
-            The Through-Line
-          </motion.p>
+            <div className="w-6 h-0.5 bg-[#b39d00]" />
+            <span className={`text-[10px] font-bold uppercase tracking-[0.3em] ${tw.light.olive}`}>
+              The Through-Line
+            </span>
+          </motion.div>
           <motion.blockquote
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
+            transition={{ delay: 0.1, duration: 1, ease: brandEase }}
             viewport={{ once: true }}
-            className="text-2xl md:text-4xl font-serif italic leading-relaxed text-white/80"
+            className={`text-2xl md:text-4xl font-serif italic leading-relaxed ${tw.light.text}`}
           >
             &ldquo;The extra is what turns ads into culture, workshops into moments, and rooms full of lanyards into something people actually remember.&rdquo;
           </motion.blockquote>
+          {/* Yellow accent line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            transition={{ delay: 0.5, duration: 0.8, ease: brandEase }}
+            viewport={{ once: true }}
+            className="w-24 h-1 bg-[#b39d00] mx-auto mt-12"
+          />
         </div>
       </section>
 
       {/* Logo Strip */}
-      <section className="px-6 md:px-12 py-20">
+      <section className="px-8 md:px-12 py-20">
         <div className="max-w-screen-xl mx-auto">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: brandEase }}
             viewport={{ once: true }}
-            className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40 mb-12 text-center"
+            className="flex items-center justify-center gap-3 mb-12"
           >
-            Previously At
-          </motion.p>
+            <div className="w-6 h-0.5 bg-[#b39d00]" />
+            <span className={`text-[10px] font-bold uppercase tracking-[0.3em] ${tw.light.olive}`}>
+              Previously At
+            </span>
+          </motion.div>
           <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
             {companies.map((company, index) => (
               <motion.span
                 key={company}
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
+                transition={{ delay: index * 0.08, duration: 0.6, ease: brandEase }}
                 viewport={{ once: true }}
-                className="text-white/40 text-sm md:text-base font-medium tracking-wide hover:text-white transition-colors"
+                className={`${tw.light.textMuted} text-sm md:text-base font-medium tracking-wide hover:text-[#0A0A0A] transition-colors cursor-default`}
               >
                 {company}
               </motion.span>
@@ -141,7 +158,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer dark />
+      <Footer />
     </div>
   );
 }

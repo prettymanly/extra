@@ -1,14 +1,33 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap');
 
 @theme {
-  --color-cream: #FAF8F5;
-  --color-charcoal: #1A1A1A;
-  --color-warm-gray: #6B6B6B;
-  --color-coral: #E85A3C;
-  --color-off-white: #FFFFFF;
+  /* === EDITORIAL LIGHT THEME === */
+  /* Neutral scale */
+  --color-neutral-50: #F6F6F3;
+  --color-neutral-100: #EDEDEA;
+  --color-neutral-200: #E0E0DC;
+  --color-neutral-300: #C8C8C2;
+  --color-neutral-400: #A0A09A;
+  --color-neutral-500: #6B6B65;
+  --color-neutral-600: #4A4A45;
+  --color-neutral-700: #2A2A26;
+  --color-neutral-800: #1A1A17;
+  --color-neutral-900: #0A0A0A;
 
-  --font-serif: 'Playfair Display', Georgia, serif;
+  /* Accent (Signal) - #FDDE0C */
+  --color-accent-400: #FDDE0C;
+  --color-accent-500: #e5c800;
+
+  /* Typography - Instrument Serif + Inter */
+  --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* Selection styles */
+::selection {
+  background: #FDDE0C;
+  color: #0A0A0A;
 }
 
 html {
@@ -17,9 +36,9 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
   line-height: 1.6;
+  background-color: #F6F6F3;
+  color: #0A0A0A;
 }
 
 .animate-on-scroll {
@@ -29,8 +48,53 @@ body {
 
 .quote {
   font-style: italic;
-  color: var(--color-warm-gray);
-  border-left: 3px solid var(--color-coral);
+  color: #4A4A45;
+  border-left: 3px solid #FDDE0C;
   padding-left: 20px;
   margin: 24px 0;
+}
+
+/* Utility class for serif font - Instrument Serif */
+.font-serif {
+  font-family: 'Instrument Serif', Georgia, serif;
+}
+
+@layer base {
+  /* Yellow highlight for emphasis - full highlighter effect */
+  mark, .highlight {
+    background-color: #FDDE0C;
+    padding: 2px 4px;
+    margin: 0 -2px;
+    border-radius: 2px;
+  }
+
+  /* Alternative: underline-style highlight (bottom portion only) */
+  .highlight-underline {
+    background-color: transparent;
+    background-image: linear-gradient(180deg, transparent 60%, #FDDE0C 60%);
+    padding: 0 4px;
+    margin: 0 -4px;
+  }
+}
+
+/* Smooth italic simulation using skew transform */
+.hover-italic {
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-italic:hover,
+.group:hover .group-hover-italic {
+  transform: skewX(-6deg);
+}
+
+/* For elements that also need translate-x on hover */
+.hover-italic-shift {
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-italic-shift:hover,
+.group:hover .group-hover-italic-shift {
+  transform: skewX(-6deg) translateX(8px);
 }
