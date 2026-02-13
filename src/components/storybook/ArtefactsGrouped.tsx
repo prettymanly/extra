@@ -48,85 +48,80 @@ export default function ArtefactsGrouped({
     <>
       <section className={`py-24 md:py-32 px-6 md:px-12 ${tw.light.bg}`}>
         <div className="max-w-screen-xl mx-auto">
-          <div className="text-center mb-16">
+          {/* Header */}
+          <div className="text-center mb-16 md:mb-20">
             <h2 className={`text-4xl md:text-5xl font-serif mb-6 ${tw.light.text}`}>{headline}</h2>
             <p className={`max-w-xl mx-auto leading-relaxed text-sm ${tw.light.textMuted}`}>{subheadline}</p>
           </div>
 
-          {/* Three Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {groups.map((group, groupIndex) => (
+          {/* Editorial Table of Contents Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-black/10">
+            {groups.map((group, index) => (
               <motion.div
                 key={group.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: groupIndex * 0.15, ease: brandEase }}
+                transition={{ duration: 0.6, delay: index * 0.15, ease: brandEase }}
                 viewport={{ once: true }}
                 onClick={() => openModal(group)}
-                className="group cursor-pointer"
+                className="group cursor-pointer py-8 md:py-0 md:px-8 first:md:pl-0 last:md:pr-0"
               >
-                {/* Card */}
-                <div className="bg-white rounded-3xl p-6 md:p-8 border border-black/5 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                  {/* Stacked/Overlapping Images */}
-                  <div className="relative h-48 md:h-56 mb-6">
-                    {group.images.map((image, imgIndex) => {
-                      // Calculate positions for overlapping effect
-                      const rotation = imgIndex === 0 ? -6 : imgIndex === 1 ? 3 : imgIndex === 2 ? -3 : imgIndex === 3 ? 5 : 0;
-                      const xOffset = imgIndex * 15;
-                      const yOffset = imgIndex * 8;
-                      const zIndex = group.images.length - imgIndex;
+                {/* Rotated Number + Header */}
+                <div className="flex items-start gap-4 md:gap-6 mb-8">
+                  {/* Rotated Number */}
+                  <span
+                    className="text-7xl md:text-8xl font-serif text-[#0A0A0A]/10 group-hover:text-[#FDDE0C] transition-colors duration-500 leading-none"
+                    style={{
+                      writingMode: 'vertical-rl',
+                      transform: 'rotate(180deg)',
+                    }}
+                  >
+                    {index + 1}
+                  </span>
 
-                      return (
-                        <motion.div
-                          key={imgIndex}
-                          className="absolute rounded-xl overflow-hidden shadow-lg"
-                          style={{
-                            width: '70%',
-                            aspectRatio: '4/3',
-                            left: `${xOffset}%`,
-                            top: `${yOffset}%`,
-                            zIndex,
-                            rotate: rotation,
-                          }}
-                          whileHover={{
-                            scale: 1.05,
-                            rotate: rotation * 0.5,
-                          }}
-                          transition={{ duration: 0.4, ease: brandEase }}
-                        >
-                          <img
-                            src={image}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
-                        </motion.div>
-                      );
-                    })}
-
-                    {/* Hover effect - images fan out */}
-                    <style>{`
-                      .group:hover [style*="rotate"] {
-                        transform: scale(1.02) translateX(${groupIndex * 2}px);
-                      }
-                    `}</style>
-                  </div>
-
-                  {/* Label & Tagline */}
-                  <div className="text-center">
-                    <h3 className={`text-xl md:text-2xl font-bold mb-2 ${tw.light.text} group-hover:text-[#686344] transition-colors`}>
+                  {/* Label + Tagline */}
+                  <div className="pt-2">
+                    <h3 className={`text-xs font-bold uppercase tracking-widest mb-2 ${tw.light.text} group-hover:text-[#686344] transition-colors`}>
                       {group.label}
                     </h3>
-                    <p className={`text-sm ${tw.light.textMuted}`}>
+                    <p className={`text-sm italic ${tw.light.textMuted}`}>
                       {group.tagline}
                     </p>
                   </div>
+                </div>
 
-                  {/* Artefact count badge */}
-                  <div className="mt-4 flex justify-center">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#FDDE0C] bg-[#FDDE0C]/10 px-3 py-1 rounded-full">
-                      {group.artefacts.length} artefacts
-                    </span>
-                  </div>
+                {/* Artefacts List */}
+                <div className="space-y-4 ml-12 md:ml-14">
+                  {group.artefacts.map((artefact, idx) => (
+                    <div key={idx}>
+                      {/* Artefact Name */}
+                      <span className={`text-sm font-medium ${tw.light.textSecondary} group-hover:text-[#0A0A0A] transition-colors`}>
+                        {artefact.title}
+                      </span>
+
+                      {/* Image (only if exists) */}
+                      {artefact.image && (
+                        <motion.div
+                          className="mt-3 aspect-[4/3] rounded-lg overflow-hidden bg-[#EDEDEA] w-4/5"
+                          whileHover={{ scale: 1.02 }}
+                          transition={{ duration: 0.3, ease: brandEase }}
+                        >
+                          <img
+                            src={artefact.image}
+                            alt={artefact.title}
+                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                          />
+                        </motion.div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {/* Hover indicator */}
+                <div className="mt-8 ml-12 md:ml-14">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#FDDE0C] opacity-0 group-hover:opacity-100 transition-opacity">
+                    Read more →
+                  </span>
                 </div>
               </motion.div>
             ))}
