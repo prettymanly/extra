@@ -27,7 +27,7 @@ import { tw, brandEase } from '../styles/colors';
 interface Metric { value: string; label: string; description: string; }
 interface Quote { text: string; author?: string; }
 interface Artefact { title: string; description?: string; image?: string; details?: string; }
-interface ArtefactItem { title: string; description: string; }
+interface ArtefactItem { title: string; description: string; image?: string; }
 interface ArtefactGroup {
   id: string;
   label: string;

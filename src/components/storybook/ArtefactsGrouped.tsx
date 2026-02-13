@@ -6,6 +6,7 @@ import { tw, brandEase } from '../../styles/colors';
 interface ArtefactItem {
   title: string;
   description: string;
+  image?: string;
 }
 
 interface ArtefactGroup {
@@ -187,20 +188,36 @@ export default function ArtefactsGrouped({
                   ))}
                 </div>
 
-                {/* Artefacts List */}
+                {/* Artefacts Row with Images */}
                 <div className="border-t border-black/10 pt-8">
                   <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#939068] mb-6">
                     Artefacts
                   </h4>
-                  <div className="space-y-4">
+                  <div className="flex gap-4 overflow-x-auto pb-4 -mx-6 px-6 md:-mx-12 md:px-12 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                     {selectedGroup.artefacts.map((artefact, idx) => (
-                      <div key={idx} className="flex items-start gap-4">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#FDDE0C] mt-2 flex-shrink-0" />
-                        <div>
-                          <span className="font-bold text-[#0A0A0A]">{artefact.title}</span>
-                          <span className="text-[#686344]"> — {artefact.description}</span>
-                        </div>
-                      </div>
+                      <motion.div
+                        key={idx}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.4, delay: idx * 0.1, ease: brandEase }}
+                        className="flex-shrink-0 w-[200px] md:w-[240px]"
+                      >
+                        {artefact.image ? (
+                          <div className="aspect-[4/3] rounded-xl overflow-hidden mb-3 bg-[#EDEDEA]">
+                            <img
+                              src={artefact.image}
+                              alt={artefact.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ) : (
+                          <div className="aspect-[4/3] rounded-xl mb-3 bg-[#EDEDEA] flex items-center justify-center">
+                            <div className="w-8 h-8 rounded-full bg-[#FDDE0C]/20" />
+                          </div>
+                        )}
+                        <h5 className="font-bold text-sm text-[#0A0A0A] mb-1">{artefact.title}</h5>
+                        <p className="text-xs text-[#686344]">{artefact.description}</p>
+                      </motion.div>
                     ))}
                   </div>
                 </div>
