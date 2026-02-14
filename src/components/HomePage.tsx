@@ -49,9 +49,10 @@ const CASE_STUDIES = [
 ];
 
 const EXTRA_ITEMS = [
-  { title: 'Arabingo', description: 'A board game to help kids learn the Arabic alphabet through play.' },
-  { title: 'Inner Playground', description: 'Improv training for curious adults.' },
-  { title: 'Conscious Collapse', description: 'A podcast about burnout, meaning, and starting over.' },
+  { title: 'Arabingo', description: 'A board game helping Muslim kids fall in love with the Arabic alphabet.' },
+  { title: 'Inner Playground', description: 'Improv training for curious adults. Growth as rehearsal, not judgment.' },
+  { title: 'Conscious Collapse', description: 'Meditations for people who can feel the cracking.' },
+  { title: 'Tümbo', description: 'A children\'s enrichment directory that tells you what a class actually feels like.' },
 ];
 
 const BLOG_POSTS = [

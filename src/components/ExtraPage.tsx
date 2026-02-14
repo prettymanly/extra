@@ -13,7 +13,7 @@ const extraItems = [
   },
   {
     title: "Inner Playground",
-    description: "A safe space for possible selves. Through applied improv, adults prototype future versions of themselves—practicing courage before reality demands it. Growth as rehearsal, not judgment.",
+    description: "A safe space for possible selves. Through applied improv, adults prototype future versions of themselves. Practicing courage before reality demands it. Growth as rehearsal, not judgment.",
     image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=600&h=400&fit=crop",
     tag: "Practice"
   },
@@ -22,6 +22,12 @@ const extraItems = [
     description: "Meditations for people who can feel the cracking. Burnout, identity fatigue, and the strange clarity when the old story stops working. Not self-help. More like sitting calmly while the wallpaper peels.",
     image: "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=600&h=400&fit=crop",
     tag: "YouTube Series"
+  },
+  {
+    title: "Tümbo",
+    description: "Every enrichment directory in Singapore reads the same: provider name, price, marketing copy. Tümbo pulls it together into something usable. What parents actually say, which kids thrive, what to honestly expect. Still a directory. Just one that tells you what the class actually feels like.",
+    image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=400&fit=crop",
+    tag: "Product"
   }
 ];
 
