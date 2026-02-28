@@ -40,8 +40,8 @@ const CASE_STUDIES = [
   },
   {
     id: '2',
-    title: 'Synthesis (Internal)',
-    oneLiner: 'From brilliant analysis to felt resonance.',
+    title: 'YASvember',
+    oneLiner: 'When junior strategists stopped performing and started showing up.',
     category: 'INTEGRATION',
     image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800',
     slug: 'synthesis-internal'

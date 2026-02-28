@@ -1,69 +1,136 @@
 ---
-import Layout from '../../layouts/Layout.astro';
 import CaseStudyPage from '../../components/CaseStudyPage';
 
 const caseStudyData = {
-  title: "Synthesis (Internal)",
-  oneLiner: "From brilliant analysis to felt resonance.",
+  title: "YASvember",
+  oneLiner: "When junior strategists stopped performing and started showing up.",
   programme: "Integration Series",
-  industry: "Consulting / Strategy",
-  scope: "20-30 junior strategists, 4 sessions × 1.5 hours",
-  heroImages: [
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&h=900&fit=crop",
-    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1600&h=900&fit=crop",
-  ],
-  accentColor: "#FF6B35",
+  industry: "Strategy Consulting",
+  scope: "20-30 participants, 4 sessions, 1 month",
   story: [
-    "Synthesis's junior strategists were analytically brilliant. Sharp decks. Tight logic. Clear recommendations. But they weren't moving clients—they were convincing them. And there's a difference.",
-    "The team needed to design for resonance, not just rigour. The kind of presence that makes clients lean in, not just nod.",
-    "I designed a 4-part integration series built around my Message, Messenger, Stage, Trigger framework. Each session focused on a different dimension of how we show up.",
+    "Twenty-something junior strategists sit in a Thursday team sharing at Synthesis. They're smart. Genuinely. The kind of people who can dismantle a brief in thirty minutes and rebuild it into something more interesting. But in the room with clients \u2014 something isn't happening. They're convincing people. They're not moving them. There's a difference. Nobody hired me to run YASvember. There was no brief, no budget line. Just a Thursday afternoon slot and an open question: what do junior strategists actually need?",
+    "Nobody hired me to run YASvember. There was no brief, no budget line, no client. Just a Thursday afternoon team sharing slot at Synthesis \u2014 a small but mighty strategy consultancy \u2014 and an open question: what do junior strategists actually need to become better at their jobs? The official answer was usually: better frameworks. Sharper decks. More rigorous research. I thought the answer was something else entirely.",
+    "Junior strategists at Synthesis were smart. Genuinely. The kind of people who could dismantle a brief in thirty minutes and rebuild it into something more interesting. But in the room with clients \u2014 something was happening. Or rather, not happening. They were convincing people. They weren't moving them.",
+    "There's a difference. Convincing is an intellectual transaction: here is my argument, here is my evidence, here is my conclusion. Moving is something else. It's when someone leaves the room and can't stop thinking about what you said. When they forward your deck unsolicited. When they bring it up in a meeting you weren't in.",
+    "The gap wasn't in the work. It was in the delivery. And not just delivery as in \"presentation skills\" \u2014 that's the wrong frame. It was something deeper: the gap between what they knew and who they were being when they said it.",
+    "I took over the Thursday team sharings for November. Four sessions, 90 minutes each, twenty-something junior strategists. I called it YASvember. Partly because it was November. Mostly because it needed a name that didn't sound like training. Each session tackled one layer of the same question: what does it actually take to land an idea with another human being?",
+    "We ended with a literal campfire ritual. Everyone wrote something they were leaving behind \u2014 a habit, a fear, a way of showing up that wasn't serving them. We burned them. Overdramatic? Maybe. Forgettable? Not a chance."
   ],
-  artefacts: [
+  artefactsLayout: "grouped",
+  artefactGroups: [
     {
-      title: "Message",
-      description: "What's survival information? What do people actually need to remember? Kill your darlings. Concise narratives.",
+      id: "message",
+      label: "The Message",
+      tagline: "What you're actually saying",
+      images: [
+        "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=800"
+      ],
+      narrative: [
+        "Every presentation has slides. Few have an armature \u2014 the one thing everything else hangs on. Session one was about finding yours.",
+        "We worked with the idea of the armature from screenwriting: before you can deliver anything, you need to know what it's actually about. Not the topic. Not the theme. The one undeniable thing.",
+        "Baby-fying: strip a strategic recommendation down until a five-year-old could understand it. Not to dumb it down \u2014 to find out if you actually understand it yourself. If you can't Baby-fy it, you don't own it yet.",
+        "Killing Your Darlings: the discipline of removing what you love most when it doesn't serve the spine. Strategists hoard their best insights. The best ones know which ones to cut."
+      ],
+      artefacts: [
+        { title: "Armature", description: "The invisible spine" },
+        { title: "Baby-fying", description: "Radical simplification" },
+        { title: "Killing Your Darlings", description: "What to cut" },
+        { title: "Client Clone", description: "Perspective rehearsal" }
+      ]
     },
     {
-      title: "Messenger",
-      description: "How do you show up? What does this moment need from you? Awareness of presence.",
+      id: "messenger",
+      label: "The Messenger",
+      tagline: "Who you are when you say it",
+      images: [
+        "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800"
+      ],
+      narrative: [
+        "The second session was about who you are when you say it. We worked through four archetypes \u2014 the Lover, the King, the Warrior, the Jester \u2014 not as personality tests but as energies. The question wasn't \"which one are you?\" It was \"which one does this moment call for, and can you choose it?\"",
+        "No-Look Portrait: pairs, drawing each other without looking at the page. The result is always a mess. The point is that awkward and committed beats polished and absent. Junior strategists had been taught that professionalism meant control. This was a different argument.",
+        "Silent Shoe Sort: the whole group sorts their shoes without speaking. What emerges is a negotiation of logic, aesthetics, and power \u2014 all without words. You learn more about how someone leads in ten minutes of shoe sorting than in an hour of case studies."
+      ],
+      artefacts: [
+        { title: "Archetypes", description: "Lover / King / Warrior / Jester" },
+        { title: "Congruence", description: "Alignment of intent and presence" },
+        { title: "No-Look Portrait", description: "Awkward beats absent" },
+        { title: "Silent Shoe Sort", description: "Leadership without words" }
+      ]
     },
     {
-      title: "Stage",
-      description: "What conditions does the room need? How does the Synthesis DNA show up in how they design space—the office, events, even the website?",
-    },
-    {
-      title: "Trigger",
-      description: "What makes a moment stick? Leaders shared their own relationship with extra-ness. How they signal meaning.",
-    },
+      id: "stage-trigger",
+      label: "The Stage & Trigger",
+      tagline: "The room and what makes it stick",
+      images: [
+        "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800",
+        "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=800"
+      ],
+      narrative: [
+        "Session three was about the room. Not the deck, not the agenda \u2014 the actual physical, emotional, social space where ideas either land or don't.",
+        "Oil and Water: two groups, opposing positions, forced to find the productive tension between them. Not debate. Not compromise. The third thing neither side could see alone.",
+        "Greenhousing: keeping ideas warm before they're evaluated. The instinct to critique kills fragile thinking early. Greenhousing creates the conditions for stranger, braver ideas to survive long enough to become useful.",
+        "Session four was about what makes something stick after you leave. The High Touch Axis \u2014 four ways ideas become memorable: Ritual, Flow, Artefact, World.",
+        "We ended YASvember with a literal campfire. Everyone wrote something they were leaving behind on a piece of paper. A habit, a fear, a way of showing up that wasn't serving them. We burned them. Leaders participated \u2014 not as observers but as participants. They shared their own relationship with \"extra-ness,\" with the parts of themselves they'd learned to dial down in professional settings.",
+        "That's not what usually happens at internal training."
+      ],
+      artefacts: [
+        { title: "Oil and Water", description: "Productive tension" },
+        { title: "Greenhousing", description: "Keeping ideas warm" },
+        { title: "High Touch Axis", description: "Ritual / Flow / Artefact / World" },
+        { title: "The Extra Seat", description: "Permission to show up fully" },
+        { title: "Campfire Closing Ritual", description: "Burning what no longer serves" }
+      ]
+    }
   ],
-  artefactsLayout: "grid",
   metrics: [
-    { value: "4", label: "Sessions Designed", description: "A 4-part integration series built around the Message, Messenger, Stage, Trigger framework." },
-    { value: "30", label: "Strategists Trained", description: "Junior strategists who learned to design for resonance, not just rigour." },
-    { value: "100%", label: "Leader Participation", description: "Leaders shared their own relationship with extra-ness, modelling the behaviours." },
+    { value: "4", label: "Sessions", description: "90-minute sessions over four Thursdays in November, each tackling one layer of strategic presence." },
+    { value: "20+", label: "Strategists", description: "Junior strategists from across the Synthesis team participated in the full series." },
+    { value: "1", label: "Month", description: "Four weeks of deliberate practice, not a one-day workshop. Enough time for things to actually shift." },
+    { value: "4", label: "Frameworks", description: "Message, Messenger, Stage, and Trigger \u2014 the four layers of what it takes to land an idea." }
   ],
   quotes: [
-    {
-      text: "A breath of fresh air. Your style is so different and valuable to our young team.",
-      author: "Synthesis Leadership",
-    },
+    { text: "A breath of fresh air. Your style is so different and valuable to our young team." },
+    { text: "I stopped trying to prove I was smart. I started trying to make them feel something." }
   ],
-  credits: [
-    { role: "Lead Facilitator & Experience Designer", name: "Ziff" },
-    { role: "Client", name: "Synthesis" },
+  heroImages: [
+    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600",
+    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1600"
   ],
+  accentColor: "#686344",
   relatedStudies: [
     {
       title: "Tetra Pak",
-      oneLiner: "From silos to symphony.",
-      category: "Leadership",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop",
-      href: "/case-studies/tetra-pak",
-    },
+      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800",
+      href: "/case-studies/tetra-pak"
+    }
   ],
+  credits: [
+    { role: "Lead Facilitator & Experience Designer", name: "Ziff" },
+    { role: "Client", name: "Synthesis (Internal)" }
+  ]
 };
 ---
 
-<Layout title="Synthesis (Internal) — Ziff">
-  <CaseStudyPage client:load {...caseStudyData} />
-</Layout>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="When junior strategists stopped performing and started showing up. A 4-session integration series for 20+ strategists at Synthesis." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <title>YASvember — Ziff</title>
+  </head>
+  <body>
+    <CaseStudyPage client:load {...caseStudyData} />
+  </body>
+</html>
+
+<style is:global>
+  @import '../../styles/global.css';
+  body { margin: 0; padding: 0; }
+</style>
