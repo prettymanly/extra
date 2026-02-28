@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Killing Your Darlings",
+  subtitle: "Strategists hoard their best insights. The best ones know which to cut. The discipline of removing what you love most when it doesn't serve the spine.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "The phrase comes from writing. Faulkner, or maybe Quiller-Couch. It means: the sentence you're most proud of is probably the one that needs to go. Because you wrote it for yourself, not for the reader."
+    },
+    {
+      type: "paragraph",
+      text: "In strategy, the darlings are the insights you spent the most time on. The analysis that took three weeks. The framework you invented. The data point nobody else found. They feel essential because of the effort they cost you — not because of the value they create for the audience."
+    },
+    {
+      type: "paragraph",
+      text: "The exercise: identify your three favourite slides. Now remove two of them. What survives is closer to the armature."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 01 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "The Armature", excerpt: "The one thing your whole argument hangs on.", tag: "YASvember", href: "/writing/the-armature" },
+    { title: "Baby-fying", excerpt: "Strip it down until a five-year-old could follow it.", tag: "YASvember", href: "/writing/baby-fying" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

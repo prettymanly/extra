@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Baby-fying",
+  subtitle: "Strip a strategic recommendation down until a five-year-old could follow it. Not to dumb it down. To find out where the thinking actually breaks.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "There's a difference between simplifying and Baby-fying. Simplifying removes detail. Baby-fying reveals whether you actually understand what you're saying."
+    },
+    {
+      type: "paragraph",
+      text: "The exercise: take your most complex strategic recommendation and explain it to a five-year-old. No jargon. No hedging. No \"it depends.\" If the child would say \"but why?\" — you haven't gone deep enough. If they'd say \"so what?\" — you haven't found the stakes."
+    },
+    {
+      type: "paragraph",
+      text: "Junior strategists discover, uncomfortably, that many of their recommendations sound impressive without being clear. Baby-fying strips the camouflage."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 01 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "The Armature", excerpt: "The one thing your whole argument hangs on.", tag: "YASvember", href: "/writing/the-armature" },
+    { title: "Killing Your Darlings", excerpt: "The discipline of cutting what you love most.", tag: "YASvember", href: "/writing/killing-your-darlings" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

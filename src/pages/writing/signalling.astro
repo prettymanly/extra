@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Signalling",
+  subtitle: "A framework for reading the room in real time and adjusting accordingly. Not after the fact — while it's still happening.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "Every room is sending signals. Posture, energy, the quality of silence, the speed of responses. Most facilitators and presenters are too inside their own content to read them."
+    },
+    {
+      type: "paragraph",
+      text: "Signalling is the practice of staying partly outside your delivery — enough to notice when the room shifts. When attention fractures. When someone checks out. When the energy rises. The skill isn't just reading these signals. It's adjusting in real time without breaking the flow."
+    },
+    {
+      type: "paragraph",
+      text: "The best presenters aren't performing. They're in conversation with a room that isn't speaking."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 03 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "Oil and Water", excerpt: "The productive tension neither side could see alone.", tag: "YASvember", href: "/writing/oil-and-water" },
+    { title: "Greenhousing", excerpt: "Keeping ideas warm before they're evaluated.", tag: "YASvember", href: "/writing/greenhousing" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

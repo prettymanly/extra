@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Oil and Water",
+  subtitle: "Two groups, opposing positions, forced to find the productive tension between them. Not debate. Not compromise. The third thing neither side could see alone.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "Split the room. Give each side a position they have to defend. Not one they chose — one they were assigned. Make the positions genuinely incompatible."
+    },
+    {
+      type: "paragraph",
+      text: "The instinct is to debate: my side is right, your side is wrong. The second instinct is to compromise: let's meet in the middle. Both instincts are wrong. The exercise is designed to produce a third thing — the insight that only becomes visible when two opposing forces hold their ground long enough for the tension to become productive."
+    },
+    {
+      type: "paragraph",
+      text: "The best strategy work lives in that tension. Not in resolution. In the refusal to collapse too early."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 03 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "Greenhousing", excerpt: "Keeping ideas warm before they're evaluated.", tag: "YASvember", href: "/writing/greenhousing" },
+    { title: "Signalling", excerpt: "Reading the room in real time.", tag: "YASvember", href: "/writing/signalling" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Greenhousing",
+  subtitle: "The discipline of keeping ideas warm before they're evaluated. The instinct to critique kills fragile thinking before it becomes useful.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "Most ideas die in their first thirty seconds. Not because they're bad — because they're fragile. And rooms full of smart people are optimised for critique, not cultivation."
+    },
+    {
+      type: "paragraph",
+      text: "Greenhousing creates a protected environment where new thinking can survive long enough to become interesting. The rule is simple: before you evaluate, extend. Before you say \"but,\" say \"and.\" Before you judge feasibility, explore desirability."
+    },
+    {
+      type: "paragraph",
+      text: "The stranger, braver ideas — the ones that actually change something — need more time in the greenhouse. They don't survive the open air of a strategy meeting. Not yet."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 03 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "Oil and Water", excerpt: "The productive tension neither side could see alone.", tag: "YASvember", href: "/writing/oil-and-water" },
+    { title: "Signalling", excerpt: "Reading the room in real time.", tag: "YASvember", href: "/writing/signalling" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

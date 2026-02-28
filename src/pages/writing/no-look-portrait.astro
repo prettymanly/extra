@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "No-Look Portrait",
+  subtitle: "Pairs draw each other without looking at the page. The result is always a mess. The point is that awkward and committed beats polished and absent.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "The instructions are simple: draw the person across from you without looking at your paper. Keep your eyes on their face. Let your hand do whatever it does."
+    },
+    {
+      type: "paragraph",
+      text: "The result is always terrible. That's the point. Junior strategists had been trained to believe that professionalism means control — polished slides, rehearsed delivery, nothing left to chance. No-Look Portrait is a different argument: the moments that connect are rarely the polished ones. They're the ones where someone is fully present, even if the output is imperfect."
+    },
+    {
+      type: "paragraph",
+      text: "Attention, it turns out, is more compelling than perfection."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 02 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "Lover, King, Warrior, Jester", excerpt: "Four energies you can consciously select.", tag: "YASvember", href: "/writing/the-four-archetypes" },
+    { title: "Silent Shoe Sort", excerpt: "Leadership without words.", tag: "YASvember", href: "/writing/silent-shoe-sort" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

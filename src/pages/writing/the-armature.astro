@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "The Armature",
+  subtitle: "Every presentation has slides. Few have a spine. The armature is the one undeniable thing your whole argument hangs on — borrowed from screenwriting, applied to strategy.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1589998059171-988d887df646?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "In screenwriting, the armature is the moral argument of the story. Not the plot, not the theme — the one irreducible thing the entire work is about. Everything either supports the armature or gets cut."
+    },
+    {
+      type: "paragraph",
+      text: "In strategy, we rarely think this way. We build decks that are comprehensive instead of compelling. We include everything that's true instead of everything that matters. The armature forces a different discipline: what is the one thing this room needs to believe by the time I'm done?"
+    },
+    {
+      type: "paragraph",
+      text: "If you can't state it in a sentence, you don't own it yet."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 01 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "Baby-fying", excerpt: "Strip it down until a five-year-old could follow it.", tag: "YASvember", href: "/writing/baby-fying" },
+    { title: "Killing Your Darlings", excerpt: "The discipline of cutting what you love most.", tag: "YASvember", href: "/writing/killing-your-darlings" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

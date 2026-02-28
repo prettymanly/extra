@@ -30,6 +30,7 @@ export { default as QuoteBlock } from './QuoteBlock';
 export { default as ArtefactsGrid } from './ArtefactsGrid';       // Grid layout version
 export { default as ArtefactsCarousel } from './ArtefactsCarousel'; // Carousel with modal version
 export { default as ArtefactsGrouped } from './ArtefactsGrouped'; // Grouped cards (World/Tools/Reinforcement)
+export { default as FourSessions } from './FourSessions';         // 4-column session layout (YASvember)
 
 // Utility Components
 export { default as ScrollToTop } from './ScrollToTop';           // Fixed scroll-to-top button

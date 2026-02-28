@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "The High Touch Axis",
+  subtitle: "Four ways experiences become sticky: Ritual, Flow, Artefact, World. Most strategists invest everything in content. Almost none design for what lingers.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "4 min read",
+  heroImage: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "Ritual: repeated actions that create meaning through repetition. The opening circle. The closing reflection. The thing you do every time that signals \"this is different from regular life.\""
+    },
+    {
+      type: "paragraph",
+      text: "Flow: the state where challenge and skill are perfectly matched. When the room disappears and only the work remains. You can't force flow, but you can design the conditions that make it possible."
+    },
+    {
+      type: "paragraph",
+      text: "Artefact: the physical thing that outlasts the experience. A card, a journal, a printed framework. Something you find in your bag three weeks later that brings the whole thing back."
+    },
+    {
+      type: "paragraph",
+      text: "World: the total environment. Not just the content — the room, the light, the music, the smell. When every sensory detail is aligned with the intention, the experience becomes immersive instead of instructive."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 04 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "The Extra Seat", excerpt: "Leaving room for the unexpected human moment.", tag: "YASvember", href: "/writing/the-extra-seat" },
+    { title: "The Armature", excerpt: "The one thing your whole argument hangs on.", tag: "YASvember", href: "/writing/the-armature" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

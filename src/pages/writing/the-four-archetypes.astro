@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Lover, King, Warrior, Jester",
+  subtitle: "Four archetypes. Not personality types — energies you can consciously select. The question isn't which one are you. It's which one does this moment call for.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "4 min read",
+  heroImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "The Lover connects. Warmth, empathy, the ability to make someone feel seen. The King holds the frame. Authority without aggression, the person who names what's happening in the room. The Warrior drives. Forward motion, directness, the willingness to say the uncomfortable thing. The Jester disrupts. Levity, surprise, the energy that breaks a stuck pattern."
+    },
+    {
+      type: "paragraph",
+      text: "Most people default to one. Junior strategists almost universally default to Warrior — because they think the room wants decisiveness. But a room full of anxiety doesn't need more force. It needs a Lover. A room full of consensus needs a Jester. Fluency means reading what's needed and choosing accordingly."
+    },
+    {
+      type: "paragraph",
+      text: "The exercise wasn't self-discovery. It was range."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 02 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "No-Look Portrait", excerpt: "Awkward and committed beats polished and absent.", tag: "YASvember", href: "/writing/no-look-portrait" },
+    { title: "Silent Shoe Sort", excerpt: "Leadership without words.", tag: "YASvember", href: "/writing/silent-shoe-sort" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

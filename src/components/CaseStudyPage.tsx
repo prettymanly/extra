@@ -9,6 +9,7 @@ import {
   ArtefactsGrid,
   ArtefactsCarousel,
   ArtefactsGrouped,
+  FourSessions,
   ImpactSection,
   QuotesSection,
   CreditsSection,
@@ -38,6 +39,12 @@ interface ArtefactGroup {
 }
 interface RelatedStudy { title: string; image: string; href: string; }
 interface Credit { role: string; name: string; }
+interface SessionItem {
+  number: string;
+  name: string;
+  premise: string;
+  body: string;
+}
 
 interface CaseStudyPageProps {
   title: string;
@@ -48,7 +55,10 @@ interface CaseStudyPageProps {
   story: string[];
   artefacts?: Artefact[];
   artefactGroups?: ArtefactGroup[];
-  artefactsLayout?: 'grid' | 'carousel' | 'grouped';
+  sessions?: SessionItem[];
+  sessionsHeadline?: string;
+  sessionsSubheadline?: string;
+  artefactsLayout?: 'grid' | 'carousel' | 'grouped' | 'sessions';
   metrics: Metric[];
   quotes: Quote[];
   heroImages: string[];
@@ -66,6 +76,9 @@ export default function CaseStudyPage({
   story,
   artefacts = [],
   artefactGroups = [],
+  sessions = [],
+  sessionsHeadline = 'The Four Sessions',
+  sessionsSubheadline = '',
   artefactsLayout = 'grid',
   metrics,
   quotes,
@@ -90,8 +103,14 @@ export default function CaseStudyPage({
           scope={scope}
         />
 
-        {/* Artefacts */}
-        {artefactsLayout === 'grouped' && artefactGroups.length > 0 ? (
+        {/* Artefacts / Sessions */}
+        {artefactsLayout === 'sessions' && sessions.length > 0 ? (
+          <FourSessions
+            headline={sessionsHeadline}
+            subheadline={sessionsSubheadline}
+            sessions={sessions}
+          />
+        ) : artefactsLayout === 'grouped' && artefactGroups.length > 0 ? (
           <ArtefactsGrouped
             groups={artefactGroups}
             headline="What We Built"

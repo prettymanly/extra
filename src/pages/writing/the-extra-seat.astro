@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "The Extra Seat",
+  subtitle: "Leaving room in every experience for the unexpected human moment. The last concept of YASvember, because it was already happening in the room.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "In theatre, some directors leave an empty chair on stage. It's for the thing that wasn't scripted. The moment that emerges because the conditions were right, not because it was planned."
+    },
+    {
+      type: "paragraph",
+      text: "The Extra Seat is a design principle: always leave room for what you didn't anticipate. Over-designed experiences are airtight. They're also lifeless. The moments people remember — the ones they talk about years later — are almost never the ones you planned. They're the ones that happened because you left space."
+    },
+    {
+      type: "paragraph",
+      text: "At YASvember, The Extra Seat became the last concept because it was already happening. Leaders sharing things they hadn't planned to share. Strategists asking questions they didn't know they had. The campfire becoming something more than a closing ritual. None of it was scripted. All of it was designed for."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 04 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "The High Touch Axis", excerpt: "Four ways experiences become sticky.", tag: "YASvember", href: "/writing/high-touch-axis" },
+    { title: "The Armature", excerpt: "The one thing your whole argument hangs on.", tag: "YASvember", href: "/writing/the-armature" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>

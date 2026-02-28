@@ -1,0 +1,39 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogPostPage from '../../components/BlogPostPage';
+
+const postData = {
+  title: "Silent Shoe Sort",
+  subtitle: "The whole group organises their shoes without speaking. What surfaces is a live negotiation of logic, aesthetics, and power — all without words.",
+  date: "From the YASvember series",
+  tag: "YASvember",
+  readTime: "3 min read",
+  heroImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1600",
+  content: [
+    {
+      type: "paragraph",
+      text: "Everyone takes off their shoes. The group has to arrange them — all of them — into some kind of order. No talking. No gesturing instructions. Just action."
+    },
+    {
+      type: "paragraph",
+      text: "What happens next is a compressed version of every team dynamic you've ever seen. Someone takes charge. Someone resists. Someone follows. Someone reorganises what was already done. Hierarchies form and dissolve in seconds. Aesthetic preferences clash with logical ones. Some people care about colour. Others care about size. Nobody agreed on the criteria, but everyone's committed to their version of right."
+    },
+    {
+      type: "paragraph",
+      text: "You learn more about how someone leads in ten minutes of shoe sorting than in an hour of case studies."
+    },
+    {
+      type: "callout",
+      text: "Full post coming soon. This concept was first introduced in Session 02 of YASvember at Synthesis."
+    }
+  ],
+  relatedPosts: [
+    { title: "No-Look Portrait", excerpt: "Awkward and committed beats polished and absent.", tag: "YASvember", href: "/writing/no-look-portrait" },
+    { title: "Oil and Water", excerpt: "The productive tension neither side could see alone.", tag: "YASvember", href: "/writing/oil-and-water" }
+  ]
+};
+---
+
+<Layout title={`${postData.title} — Ziff`}>
+  <BlogPostPage {...postData} client:load />
+</Layout>
