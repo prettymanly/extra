@@ -40,7 +40,7 @@ export default function AboutPage() {
               transition={{ duration: 1.2, ease: brandEase }}
             >
               <div className="aspect-[3/4] overflow-hidden rounded-2xl">
-                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=600&h=800&fit=crop&crop=face" alt="Ziff" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+                <img src="/images/about/intro-image.webp" alt="Ziff" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
               </div>
             </motion.div>
 
