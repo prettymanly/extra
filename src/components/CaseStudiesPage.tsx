@@ -6,7 +6,7 @@ import { tw } from '../styles/colors';
 const caseStudies = [
   {
     slug: "tetra-pak",
-    title: "Tetra Pak",
+    title: "Design Being, Tetra Pak",
     oneLiner: "From silos to symphony.",
     category: "Leadership",
     image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop"
