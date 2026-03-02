@@ -30,6 +30,11 @@ const defaultLinks: NavLink[] = [
   { name: 'About', href: '/about' },
 ];
 
+/** Map additional path prefixes to the nav item they belong to */
+const pathAliases: Record<string, string> = {
+  '/writing': '/thinking',
+};
+
 export default function Navigation({
   links = defaultLinks,
   ctaText = "Let's Talk",
@@ -53,6 +58,17 @@ export default function Navigation({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  /** Check if a nav link should be active for the current path */
+  const isLinkActive = (linkHref: string) => {
+    if (activePath === linkHref) return true;
+    if (linkHref !== '/' && activePath.startsWith(linkHref)) return true;
+    // Check aliases: e.g. /writing/the-armature → /thinking
+    for (const [prefix, target] of Object.entries(pathAliases)) {
+      if (target === linkHref && activePath.startsWith(prefix)) return true;
+    }
+    return false;
+  };
+
   return (
     <>
       <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-8 py-6 md:px-12 ${scrolled ? 'bg-[#F6F6F3]/90 backdrop-blur-xl py-4 border-b border-black/5' : 'bg-transparent'}`}>
@@ -64,7 +80,7 @@ export default function Navigation({
           <div className="flex items-center gap-8">
             <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
               {links.map((link) => {
-                const isActive = activePath === link.href || (link.href !== '/' && activePath.startsWith(link.href));
+                const isActive = isLinkActive(link.href);
                 return (
                   <a
                     key={link.name}
@@ -111,7 +127,7 @@ export default function Navigation({
           >
             <div className={`flex flex-col gap-6 text-4xl font-serif italic ${tw.light.text}`}>
               {links.map((item, idx) => {
-                const isActive = activePath === item.href;
+                const isActive = isLinkActive(item.href);
                 return (
                   <motion.a
                     key={item.name}
