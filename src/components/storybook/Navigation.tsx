@@ -64,20 +64,22 @@ export default function Navigation({
           <div className="flex items-center gap-8">
             <div className="hidden md:flex gap-8 text-[10px] font-bold uppercase tracking-[0.2em]">
               {links.map((link) => {
-                const isActive = activePath === link.href;
+                const isActive = activePath === link.href || (link.href !== '/' && activePath.startsWith(link.href));
                 return (
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`relative text-[#0A0A0A] transition-all group ${
-                      isActive ? 'opacity-100' : 'opacity-40 hover:opacity-100'
+                    className={`relative transition-all group ${
+                      isActive
+                        ? 'text-[#b39d00] opacity-100'
+                        : 'text-[#0A0A0A] opacity-40 hover:opacity-100'
                     }`}
                   >
                     {link.name}
-                    {/* Yellow underline - active or hover */}
-                    <span className={`absolute -bottom-1 left-0 h-0.5 bg-[#b39d00] transition-all duration-300 ${
-                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                    }`} />
+                    {/* Yellow underline - hover only (not active) */}
+                    {!isActive && (
+                      <span className="absolute -bottom-1 left-0 h-0.5 bg-[#b39d00] transition-all duration-300 w-0 group-hover:w-full" />
+                    )}
                   </a>
                 );
               })}
