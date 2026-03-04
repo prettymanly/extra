@@ -71,7 +71,7 @@ export default function HeroGallery({
   return (
     <section className="pb-12 md:pb-16">
       <motion.div
-        className="flex gap-4 md:gap-5 overflow-x-auto pb-4 scrollbar-hide px-8 md:px-12"
+        className="flex gap-4 md:gap-5 overflow-x-auto pb-4 scrollbar-hide pl-8 md:pl-12 lg:pl-40 pr-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: brandEase }}
