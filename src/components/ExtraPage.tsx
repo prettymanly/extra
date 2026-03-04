@@ -43,7 +43,7 @@ export default function ExtraPage() {
       <Navigation />
 
       {/* Hero */}
-      <section className="px-6 md:px-12 pt-32 pb-20">
+      <section className="px-8 md:px-12 pt-32 pb-20">
         <div className="max-w-screen-xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 mb-6">
             <div className="w-6 h-0.5 bg-[#b39d00]" />
@@ -57,7 +57,7 @@ export default function ExtraPage() {
       </section>
 
       {/* Grid */}
-      <section className="px-6 md:px-12 pb-32">
+      <section className="px-8 md:px-12 pb-32">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {extraItems.map((item, index) => (

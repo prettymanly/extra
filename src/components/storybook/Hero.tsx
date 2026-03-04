@@ -43,7 +43,7 @@ export default function Hero({
   return (
     <>
       <section className="relative min-h-[90vh] flex flex-col justify-center px-8 md:px-12 overflow-hidden">
-        <motion.div style={{ opacity, scale, y: yTranslate }} className="text-center max-w-screen-2xl mx-auto w-full">
+        <motion.div style={{ opacity, scale, y: yTranslate }} className="text-center max-w-screen-xl mx-auto w-full">
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}

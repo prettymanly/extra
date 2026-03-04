@@ -62,7 +62,7 @@ export default function ThinkingSection({
 }: ThinkingSectionProps) {
   return (
     <section className="py-32 px-8 md:px-12">
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
         <div className="lg:col-span-4">
           <motion.div
             initial={{ opacity: 0, x: -20 }}

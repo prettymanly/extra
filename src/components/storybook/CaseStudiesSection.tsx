@@ -37,7 +37,7 @@ export default function CaseStudiesSection({
   ctaHref = '/case-studies',
 }: CaseStudiesSectionProps) {
   return (
-    <section className="py-32 px-8 md:px-12 max-w-screen-2xl mx-auto">
+    <section className="py-32 px-8 md:px-12 max-w-screen-xl mx-auto">
       <div className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
         <div className="max-w-2xl">
           <motion.div

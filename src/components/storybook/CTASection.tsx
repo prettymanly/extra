@@ -37,7 +37,7 @@ export default function CTASection({
   const borderColor = dark ? 'border-white/20' : 'border-black/20';
 
   return (
-    <section id="cta" className={`py-32 px-6 md:px-12 ${bgColor} ${textColor} text-center overflow-hidden relative`}>
+    <section id="cta" className={`py-32 px-8 md:px-12 ${bgColor} ${textColor} text-center overflow-hidden relative`}>
       <div className="max-w-screen-xl mx-auto relative z-10">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}

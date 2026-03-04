@@ -35,7 +35,7 @@ export default function ExtraSection({
 }: ExtraSectionProps) {
   return (
     <section className={`py-32 px-8 md:px-12 ${showBackground ? tw.light.bgSecondary : ''}`}>
-      <div className="max-w-screen-2xl mx-auto">
+      <div className="max-w-screen-xl mx-auto">
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
             <motion.div

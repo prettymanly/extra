@@ -83,7 +83,7 @@ export default function FourSessions({ headline, subheadline, sessions }: FourSe
 
   return (
     <>
-      <section className={`py-24 md:py-32 px-6 md:px-12 ${tw.light.bg}`}>
+      <section className={`py-24 md:py-32 px-8 md:px-12 ${tw.light.bg}`}>
         <div className="max-w-screen-xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 md:mb-20">

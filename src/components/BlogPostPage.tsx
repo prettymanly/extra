@@ -91,8 +91,8 @@ export default function BlogPostPage({
 
       <main>
         {/* Article Header */}
-        <section className="pt-32 md:pt-40 pb-8 px-6 md:px-12 lg:px-40">
-          <div className="max-w-screen-2xl mx-auto">
+        <section className="pt-32 md:pt-40 pb-8 px-8 md:px-12 ">
+          <div className="max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-16 items-start">
               <motion.div className="md:col-span-3 space-y-4" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                 <span className={`text-xs font-medium uppercase tracking-widest ${tw.light.textMuted} block`}>{tag}</span>
@@ -109,7 +109,7 @@ export default function BlogPostPage({
 
         {/* Hero Image */}
         {heroImage && (
-          <section className="pb-16 px-6 md:px-12">
+          <section className="pb-16 px-8 md:px-12">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="max-w-screen-xl mx-auto">
               <img src={heroImage} alt={title} className="w-full h-[40vh] md:h-[60vh] object-cover rounded-2xl" />
             </motion.div>
@@ -117,8 +117,8 @@ export default function BlogPostPage({
         )}
 
         {/* Article Content */}
-        <section className="py-16 px-6 md:px-12 lg:px-40">
-          <div className="max-w-screen-2xl mx-auto">
+        <section className="py-16 px-8 md:px-12 ">
+          <div className="max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-16">
               <div className="hidden md:block md:col-span-3" />
               <article className="md:col-span-9 max-w-2xl">
@@ -129,8 +129,8 @@ export default function BlogPostPage({
         </section>
 
         {/* Back to Thinking */}
-        <section className="px-6 md:px-12 lg:px-40 pb-16">
-          <div className="max-w-screen-2xl mx-auto">
+        <section className="px-8 md:px-12  pb-16">
+          <div className="max-w-screen-xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-16">
               <div className="hidden md:block md:col-span-3" />
               <div className="md:col-span-9">
@@ -145,7 +145,7 @@ export default function BlogPostPage({
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
           <section className="py-24 border-t border-black/5">
-            <div className="pl-6 md:pl-12 lg:pl-40 pr-6">
+            <div className="pl-8 md:pl-12 pr-8">
               <h2 className="text-3xl md:text-4xl font-serif mb-12">Keep Reading</h2>
               <div className="flex gap-8 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 {relatedPosts.map((post, index) => (

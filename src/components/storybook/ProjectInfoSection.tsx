@@ -27,8 +27,8 @@ export default function ProjectInfoSection({
   const [storyExpanded, setStoryExpanded] = useState(false);
 
   return (
-    <section className="py-24 md:py-32 px-8 md:px-12 lg:px-40">
-      <div className="max-w-screen-2xl mx-auto">
+    <section className="py-24 md:py-32 px-8 md:px-12">
+      <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
           {/* Left Column: Project Meta */}
           <div className="md:col-span-3 space-y-8">

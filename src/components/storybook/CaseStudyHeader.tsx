@@ -21,8 +21,8 @@ export default function CaseStudyHeader({
   label = 'Case Study',
 }: CaseStudyHeaderProps) {
   return (
-    <section className="pt-32 md:pt-40 pb-8 px-8 md:px-12 lg:px-40">
-      <div className="max-w-screen-2xl mx-auto">
+    <section className="pt-32 md:pt-40 pb-8 px-8 md:px-12">
+      <div className="max-w-screen-xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-16 items-start">
           {/* Left: Label */}
           <motion.div

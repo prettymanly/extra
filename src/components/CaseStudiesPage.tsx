@@ -26,7 +26,7 @@ export default function CaseStudiesPage() {
       <Navigation />
 
       {/* Hero */}
-      <section className="px-6 md:px-12 pt-32 pb-20">
+      <section className="px-8 md:px-12 pt-32 pb-20">
         <div className="max-w-screen-xl mx-auto">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className={`text-[10px] font-bold uppercase tracking-[0.3em] ${tw.light.textMuted} mb-6`}>Case Studies</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-7xl lg:text-8xl font-serif italic tracking-tight mb-8">Proof</motion.h1>
@@ -37,7 +37,7 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* Case Study Grid */}
-      <section className="px-6 md:px-12 pb-32">
+      <section className="px-8 md:px-12 pb-32">
         <div className="max-w-screen-xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {caseStudies.map((study, index) => (

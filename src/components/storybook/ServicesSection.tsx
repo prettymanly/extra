@@ -35,7 +35,7 @@ export default function ServicesSection({
 }: ServicesSectionProps) {
   return (
     <section className={`pt-24 md:pt-32 pb-32 px-8 md:px-12 ${showBackground ? tw.light.bgSecondary : ''}`}>
-      <div className="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
         <div className="lg:col-span-4 lg:sticky lg:top-32 h-fit">
           <motion.div
             initial={{ opacity: 0, x: -20 }}

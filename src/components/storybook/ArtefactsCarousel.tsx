@@ -70,8 +70,8 @@ export default function ArtefactsCarousel({
 
   return (
     <>
-      <section className={`py-24 md:py-32 px-6 md:px-12 ${tw.light.bg}`}>
-        <div className="max-w-screen-2xl mx-auto">
+      <section className={`py-24 md:py-32 px-8 md:px-12 ${tw.light.bg}`}>
+        <div className="max-w-screen-xl mx-auto">
           <div className="text-center mb-16">
             <h2 className={`text-4xl md:text-5xl font-serif mb-6 ${tw.light.text}`}>{headline}</h2>
             <p className={`max-w-xl mx-auto leading-relaxed text-sm ${tw.light.textMuted}`}>{subheadline}</p>

@@ -143,7 +143,7 @@ export default function CaseStudyPage({
 
         {/* Related Case Studies */}
         {relatedStudies.length > 0 && (
-          <section className="py-32 px-8 md:px-12 max-w-screen-2xl mx-auto overflow-hidden">
+          <section className="py-32 px-8 md:px-12 max-w-screen-xl mx-auto overflow-hidden">
             <div className="flex justify-between items-end mb-16">
               <div>
                 <h2 className={`text-4xl md:text-5xl font-serif mb-4 ${tw.light.text}`}>More Work</h2>
@@ -180,7 +180,7 @@ export default function CaseStudyPage({
         )}
 
         {/* Back Link */}
-        <section className="px-8 md:px-12 pb-16 max-w-screen-2xl mx-auto">
+        <section className="px-8 md:px-12 pb-16 max-w-screen-xl mx-auto">
           <a
             href="/case-studies"
             className={`inline-flex items-center gap-2 ${tw.light.textSecondary} hover:text-[#0A0A0A] font-medium transition-colors`}

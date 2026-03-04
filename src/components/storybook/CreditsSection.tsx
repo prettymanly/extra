@@ -27,7 +27,7 @@ export default function CreditsSection({
       className="py-24 overflow-x-auto border-t border-black/5"
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
-      <div className="pl-8 md:pl-12 lg:pl-40 pr-8">
+      <div className="pl-8 md:pl-12 pr-8">
         <h2 className={`text-2xl font-serif mb-12 ${tw.light.text}`}>{headline}</h2>
         <div className="flex gap-8 min-w-max md:min-w-0 md:grid md:grid-cols-2 lg:grid-cols-4">
           {credits.map((credit) => (
