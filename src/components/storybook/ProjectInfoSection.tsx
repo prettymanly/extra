@@ -65,7 +65,7 @@ export default function ProjectInfoSection({
               <p className={`text-2xl md:text-3xl lg:text-4xl font-serif leading-tight italic ${tw.light.text}`}>
                 {story[0]}
               </p>
-              {!storyExpanded && story.length > 1 && (
+              {story.length > 1 && (
                 <p className={`text-2xl md:text-3xl lg:text-4xl font-serif leading-tight italic mt-6 ${tw.light.textMuted}`}>
                   {story[1]}
                 </p>
