@@ -1,19 +1,66 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { brandEase } from '../../styles/colors';
 
 /**
  * DESIGN SYSTEM: HeroGallery
  * - Horizontal scrollable gallery
- * - First image larger (70vw), subsequent (55vw)
+ * - First item larger (70vw), subsequent (55vw)
+ * - Supports images and HLS video (.m3u8)
  * - Third slot can be accent color block if no image
- * - Hover zoom effect
+ * - Hover zoom effect on images
  */
 
 interface HeroGalleryProps {
   images: string[];
   title?: string;
   accentColor?: string;
+}
+
+function isVideo(src: string) {
+  return src.endsWith('.m3u8');
+}
+
+/** HLS video player that auto-loads hls.js */
+function HLSVideo({ src, className }: { src: string; className?: string }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      // Safari native HLS
+      video.src = src;
+    } else {
+      // Load hls.js dynamically for other browsers
+      import('hls.js').then(({ default: Hls }) => {
+        if (Hls.isSupported()) {
+          const hls = new Hls();
+          hls.loadSource(src);
+          hls.attachMedia(video);
+        }
+      });
+    }
+  }, [src]);
+
+  return (
+    <video
+      ref={videoRef}
+      className={className}
+      autoPlay
+      muted
+      loop
+      playsInline
+    />
+  );
+}
+
+function MediaItem({ src, title, className }: { src: string; title: string; className?: string }) {
+  if (isVideo(src)) {
+    return <HLSVideo src={src} className={className} />;
+  }
+  return <img src={src} className={className} alt={title} />;
 }
 
 export default function HeroGallery({
@@ -33,21 +80,21 @@ export default function HeroGallery({
           msOverflowStyle: 'none',
         }}
       >
-        {/* First Image - Large */}
+        {/* First Item - Large */}
         <motion.div
           className="flex-shrink-0 w-[70vw] md:w-[45vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3, ease: brandEase }}
         >
-          <img
+          <MediaItem
             src={images[0]}
+            title={title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-            alt={title}
           />
         </motion.div>
 
-        {/* Second Image */}
+        {/* Second Item */}
         {images[1] && (
           <motion.div
             className="flex-shrink-0 w-[55vw] md:w-[35vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
@@ -55,15 +102,15 @@ export default function HeroGallery({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4, ease: brandEase }}
           >
-            <img
+            <MediaItem
               src={images[1]}
+              title={title}
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              alt={title}
             />
           </motion.div>
         )}
 
-        {/* Third Image or Accent Color Block */}
+        {/* Third Item or Accent Color Block */}
         <motion.div
           className="flex-shrink-0 w-[55vw] md:w-[35vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
           style={{ backgroundColor: images[2] ? undefined : accentColor }}
@@ -72,10 +119,10 @@ export default function HeroGallery({
           transition={{ duration: 0.6, delay: 0.5, ease: brandEase }}
         >
           {images[2] ? (
-            <img
+            <MediaItem
               src={images[2]}
+              title={title}
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              alt={title}
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
@@ -86,8 +133,8 @@ export default function HeroGallery({
           )}
         </motion.div>
 
-        {/* Additional Images */}
-        {images.slice(3).map((img, idx) => (
+        {/* Additional Items */}
+        {images.slice(3).map((src, idx) => (
           <motion.div
             key={idx}
             className="flex-shrink-0 w-[55vw] md:w-[35vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
@@ -95,10 +142,10 @@ export default function HeroGallery({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 + idx * 0.1, ease: brandEase }}
           >
-            <img
-              src={img}
+            <MediaItem
+              src={src}
+              title={title}
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-              alt={title}
             />
           </motion.div>
         ))}
