@@ -64,10 +64,12 @@ export default function ProjectInfoSection({
             >
               <p className={`text-2xl md:text-3xl lg:text-4xl font-serif leading-tight italic ${tw.light.text}`}>
                 {story[0]}
-                {!storyExpanded && story.length > 1 && (
-                  <span className={tw.light.textMuted}> {story[1]?.substring(0, 60)}...</span>
-                )}
               </p>
+              {!storyExpanded && story.length > 1 && (
+                <p className={`text-2xl md:text-3xl lg:text-4xl font-serif leading-tight italic mt-6 ${tw.light.textMuted}`}>
+                  {story[1]}
+                </p>
+              )}
             </motion.div>
 
             {/* Expandable Story Content */}
@@ -81,7 +83,7 @@ export default function ProjectInfoSection({
                   className="overflow-hidden"
                 >
                   <div className="space-y-6 mb-8">
-                    {story.slice(1).map((paragraph, idx) => (
+                    {story.slice(2).map((paragraph, idx) => (
                       <motion.p
                         key={idx}
                         initial={{ opacity: 0, y: 20 }}
@@ -98,7 +100,7 @@ export default function ProjectInfoSection({
             </AnimatePresence>
 
             {/* Read Full Story Button */}
-            {story.length > 1 && (
+            {story.length > 2 && (
               <motion.button
                 onClick={() => setStoryExpanded(!storyExpanded)}
                 whileHover={{ scale: 1.02 }}
