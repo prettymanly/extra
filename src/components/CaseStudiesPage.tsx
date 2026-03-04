@@ -9,7 +9,8 @@ const caseStudies = [
     title: "Design Being, Tetra Pak",
     oneLiner: "From silos to symphony.",
     category: "Leadership",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=1000&fit=crop"
+    image: "/images/tetra-pak/video/1010/index.m3u8",
+    poster: "/images/tetra-pak/video/poster.jpg"
   },
   {
     slug: "synthesis-internal",
@@ -47,6 +48,7 @@ export default function CaseStudiesPage() {
                 oneLiner={study.oneLiner}
                 category={study.category}
                 image={study.image}
+                poster={study.poster}
                 href={`/case-studies/${study.slug}`}
                 index={index}
               />

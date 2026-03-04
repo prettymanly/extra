@@ -15,6 +15,7 @@ interface HeroGalleryProps {
   images: string[];
   title?: string;
   accentColor?: string;
+  videoPoster?: string;
 }
 
 function isVideo(src: string) {
@@ -22,7 +23,7 @@ function isVideo(src: string) {
 }
 
 /** HLS video player that auto-loads hls.js */
-function HLSVideo({ src, className }: { src: string; className?: string }) {
+function HLSVideo({ src, poster, className }: { src: string; poster?: string; className?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -47,18 +48,20 @@ function HLSVideo({ src, className }: { src: string; className?: string }) {
   return (
     <video
       ref={videoRef}
+      poster={poster}
       className={className}
       autoPlay
       muted
       loop
       playsInline
+      preload="auto"
     />
   );
 }
 
-function MediaItem({ src, title, className }: { src: string; title: string; className?: string }) {
+function MediaItem({ src, poster, title, className }: { src: string; poster?: string; title: string; className?: string }) {
   if (isVideo(src)) {
-    return <HLSVideo src={src} className={className} />;
+    return <HLSVideo src={src} poster={poster} className={className} />;
   }
   return <img src={src} className={className} alt={title} />;
 }
@@ -67,6 +70,7 @@ export default function HeroGallery({
   images,
   title = '',
   accentColor = '#FDDE0C',
+  videoPoster,
 }: HeroGalleryProps) {
   return (
     <section className="pb-12 md:pb-16">
@@ -93,6 +97,7 @@ export default function HeroGallery({
         >
           <MediaItem
             src={images[0]}
+            poster={videoPoster}
             title={title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
           />

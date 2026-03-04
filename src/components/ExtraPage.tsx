@@ -6,6 +6,24 @@ import { tw } from '../styles/colors';
 
 const extraItems = [
   {
+    title: "Tümbo",
+    description: "Every enrichment directory in Singapore reads the same: provider name, price, marketing copy. Tümbo pulls it together into something usable. What parents actually say, which kids thrive, what to honestly expect. Still a directory. Just one that tells you what the class actually feels like.",
+    image: "/images/extra/tumbo.png",
+    tag: "Product"
+  },
+  {
+    title: "Conscious Collapse",
+    description: "Meditations for people who can feel the cracking. Burnout, identity fatigue, and the strange clarity when the old story stops working. Not self-help. More like sitting calmly while the wallpaper peels.",
+    image: "/images/extra/conscious-collapse.png",
+    tag: "YouTube Series"
+  },
+  {
+    title: "Rabbithole",
+    description: "Turn curiosity into curriculum. Start with a question you can't shake, then shape it into something you can follow. Your own syllabus, your own sources, your own pace. No instructor. No algorithm. Just you designing what you need to learn, and a quiet space to do it in.",
+    image: "/images/extra/rabbithole.png",
+    tag: "Product"
+  },
+  {
     title: "Arabingo",
     description: "A board game helping Muslim kids fall in love with the Arabic alphabet. What started as a father-son experiment became something worth sharing. Play first. Fluency follows.",
     image: "/images/extra/arabingo.jpg",
@@ -16,24 +34,6 @@ const extraItems = [
     description: "A safe space for possible selves. Through applied improv, adults prototype future versions of themselves. Practicing courage before reality demands it. Growth as rehearsal, not judgment.",
     image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=600&h=400&fit=crop",
     tag: "Practice"
-  },
-  {
-    title: "Conscious Collapse",
-    description: "Meditations for people who can feel the cracking. Burnout, identity fatigue, and the strange clarity when the old story stops working. Not self-help. More like sitting calmly while the wallpaper peels.",
-    image: "/images/extra/conscious-collapse.png",
-    tag: "YouTube Series"
-  },
-  {
-    title: "Tümbo",
-    description: "Every enrichment directory in Singapore reads the same: provider name, price, marketing copy. Tümbo pulls it together into something usable. What parents actually say, which kids thrive, what to honestly expect. Still a directory. Just one that tells you what the class actually feels like.",
-    image: "/images/extra/tumbo.png",
-    tag: "Product"
-  },
-  {
-    title: "Rabbithole",
-    description: "Turn curiosity into curriculum. Start with a question you can't shake, then shape it into something you can follow. Your own syllabus, your own sources, your own pace. No instructor. No algorithm. Just you designing what you need to learn, and a quiet space to do it in.",
-    image: "/images/extra/rabbithole.png",
-    tag: "Product"
   }
 ];
 

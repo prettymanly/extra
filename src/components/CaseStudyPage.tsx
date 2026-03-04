@@ -62,6 +62,7 @@ interface CaseStudyPageProps {
   metrics: Metric[];
   quotes: Quote[];
   heroImages: string[];
+  videoPoster?: string;
   accentColor?: string;
   relatedStudies?: RelatedStudy[];
   credits?: Credit[];
@@ -83,6 +84,7 @@ export default function CaseStudyPage({
   metrics,
   quotes,
   heroImages,
+  videoPoster,
   accentColor = '#FDDE0C',
   relatedStudies = [],
   credits = [],
@@ -94,7 +96,7 @@ export default function CaseStudyPage({
       <main>
         <CaseStudyHeader title={title} oneLiner={oneLiner} />
 
-        <HeroGallery images={heroImages} title={title} accentColor={accentColor} />
+        <HeroGallery images={heroImages} title={title} accentColor={accentColor} videoPoster={videoPoster} />
 
         <ProjectInfoSection
           story={story}
