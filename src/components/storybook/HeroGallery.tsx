@@ -80,9 +80,13 @@ export default function HeroGallery({
           msOverflowStyle: 'none',
         }}
       >
-        {/* First Item - Large */}
+        {/* First Item - Large (square if video, wide if image) */}
         <motion.div
-          className="flex-shrink-0 w-[70vw] md:w-[45vw] h-[35vh] md:h-[50vh] overflow-hidden rounded-xl relative group snap-start"
+          className={`flex-shrink-0 overflow-hidden rounded-xl relative group snap-start ${
+            isVideo(images[0])
+              ? 'w-[70vw] md:w-[50vh] aspect-square'
+              : 'w-[70vw] md:w-[45vw] h-[35vh] md:h-[50vh]'
+          }`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.3, ease: brandEase }}
