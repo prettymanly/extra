@@ -30,7 +30,7 @@ export default function ImpactSection({
       className={`py-32 overflow-x-auto ${tw.light.bgSecondary}`}
       style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
     >
-      <div className="pl-8 md:pl-12 pr-8">
+      <div className="max-w-screen-xl mx-auto px-8 md:px-12">
         <h2 className={`text-4xl md:text-5xl font-serif mb-20 ${tw.light.text}`}>{headline}</h2>
         <div className="flex gap-4 min-w-max md:min-w-0 md:grid md:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric, idx) => (
