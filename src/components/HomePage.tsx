@@ -53,6 +53,7 @@ const EXTRA_ITEMS = [
   { title: 'Inner Playground', description: 'Improv training for curious adults. Growth as rehearsal, not judgment.' },
   { title: 'Conscious Collapse', description: 'Meditations for people who can feel the cracking.' },
   { title: 'Tümbo', description: 'A children\'s enrichment directory that tells you what a class actually feels like.' },
+  { title: 'Rabbithole', description: 'Turn curiosity into curriculum. Your own syllabus, your own pace.' },
 ];
 
 const BLOG_POSTS = [

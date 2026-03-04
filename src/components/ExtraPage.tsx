@@ -28,6 +28,12 @@ const extraItems = [
     description: "Every enrichment directory in Singapore reads the same: provider name, price, marketing copy. Tümbo pulls it together into something usable. What parents actually say, which kids thrive, what to honestly expect. Still a directory. Just one that tells you what the class actually feels like.",
     image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&h=400&fit=crop",
     tag: "Product"
+  },
+  {
+    title: "Rabbithole",
+    description: "Turn curiosity into curriculum. Start with a question you can't shake, then shape it into something you can follow. Your own syllabus, your own sources, your own pace. No instructor. No algorithm. Just you designing what you need to learn, and a quiet space to do it in.",
+    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=600&h=400&fit=crop",
+    tag: "Product"
   }
 ];
 
