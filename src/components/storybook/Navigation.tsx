@@ -71,7 +71,7 @@ export default function Navigation({
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-8 py-6 md:px-12 ${scrolled ? 'bg-[#F6F6F3]/90 backdrop-blur-xl py-4 border-b border-black/5' : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 px-8 py-6 md:px-12 lg:px-40 ${scrolled ? 'bg-[#F6F6F3]/90 backdrop-blur-xl py-4 border-b border-black/5' : 'bg-transparent'}`}>
         <div className="max-w-screen-2xl mx-auto flex justify-between items-center">
           <a href="/" className="flex items-center gap-3 group cursor-pointer">
             <span className={`text-xl font-black tracking-tighter uppercase group-hover-italic ${tw.light.text}`}>Ziff</span>
