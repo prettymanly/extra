@@ -16,21 +16,25 @@ export const onRequest = defineMiddleware(async (context, next) => {
     return next();
   }
 
-  // Handle password submission
-  if (request.method === "POST" && url.pathname === "/__auth") {
-    const formData = await request.formData();
-    const password = formData.get("password");
+  // Handle password submission on any path
+  if (request.method === "POST") {
+    try {
+      const formData = await request.formData();
+      const password = formData.get("password");
 
-    if (password === SITE_PASSWORD) {
-      cookies.set(COOKIE_NAME, "true", {
-        path: "/",
-        httpOnly: true,
-        secure: true,
-        sameSite: "lax",
-        maxAge: 60 * 60 * 24 * 7, // 7 days
-      });
-      return context.redirect(url.searchParams.get("redirect") || "/");
-    }
+      if (password === SITE_PASSWORD) {
+        cookies.set(COOKIE_NAME, "true", {
+          path: "/",
+          httpOnly: true,
+          sameSite: "lax",
+          maxAge: 60 * 60 * 24 * 7, // 7 days
+        });
+        return new Response(null, {
+          status: 302,
+          headers: { Location: "/" },
+        });
+      }
+    } catch {}
 
     // Wrong password — show form again with error
     return new Response(passwordPage(true), {
@@ -106,7 +110,7 @@ function passwordPage(error: boolean) {
 <body>
   <div class="container">
     <h1>This site is currently private</h1>
-    <form method="POST" action="/__auth">
+    <form method="POST">
       <input type="password" name="password" placeholder="Enter password" autofocus required />
       <button type="submit">Enter</button>
       ${error ? '<p class="error">Incorrect password</p>' : ''}
